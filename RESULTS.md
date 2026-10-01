@@ -67,6 +67,8 @@ More detail: `report/STAGE3_REPORT.pdf` and `analysis/tables.md`.
 
 In chat, 37 of 258 trades (14%) violated the client's limit. In the planner it was 1 of 182.
 
+About half of those (21) happened right after the agent's reasoning was cut off by our 2,048-token cap, so 14% is an upper bound. Excluding those cases, **16 of 258 (6%)** remain, mostly GPT-OSS (11). Those are genuine reasoning errors, mostly of the form "best available = acceptable." Qwen's violations were mostly reasoning loops that ran out of room.
+
 | | Buyer paid above client's max | Seller sold below client's min |
 |---|---|---|
 | Qwen3-8B | 19 | 7 |

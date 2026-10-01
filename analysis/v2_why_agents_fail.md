@@ -35,7 +35,35 @@ That gets the client's payoff backwards. Selling below the minimum is *worse* fo
 
 On the forced retry, it accepted the $560 offer.
 
-**This part is partly our fault.** About half the violations went through the forced retry. A larger token cap, or a retry that allows reasoning, would likely prevent some of them. So the 14% violation rate overstates what these models would do with more room to think. But the loops themselves, and the cases where the agent noticed and accepted anyway without any retry, are real weaknesses of the models.
+**This part is partly our fault.** About half the violations went through the forced retry (see the clean-case breakdown below). A larger token cap, or a retry that allows reasoning, would likely prevent some of them. So the 14% violation rate overstates what these models would do with more room to think. But the loops themselves, and the cases where the agent noticed and accepted anyway without any retry, are real weaknesses of the models.
+
+### What's left once the token-cap cases are removed
+
+Two more cases also ran out of tokens; in those, my parser picked up a JSON object written mid-reasoning. That leaves **16 clean violations out of 258 chat trades (6%)**, against 14% with the cut-off cases included. The clean cases come mostly from GPT-OSS (11) rather than Qwen (5). **So Qwen's failures were mostly reasoning that ran out of room, while GPT-OSS's are genuine reasoning errors.** The 16 fall into three groups:
+
+| What the reasoning shows | Cases | Example |
+|---|---|---|
+| **"Best available = acceptable."** It takes the best offer on the board even when it breaks the limit, forgetting that walking away is allowed and better for the client. | 11 | *"We should accept $110 since it's highest"* (GPT-OSS seller, $260 minimum). *"The only option is to accept the $176 offer"* (Qwen buyer, $82 maximum). |
+| **The conclusion and the action disagree.** The reasoning ends on one plan, and the JSON does something else. | 3 | Reasoning ends *"it's safer to keep the $184 offer and see"*, but the JSON accepts $147 against a $167 minimum (Qwen). Another seller messages *"I'm holding firm at my minimum"* in the same turn it sells below it. |
+| **It never checked the limit,** or it posted an offer outside it. | 2 | (GPT-OSS) |
+
+Reproduce with `python -m v2.failure_analysis` (the "not cut off by the token cap" line).
+
+## Why are the violations in the last two rounds?
+
+The agents didn't hold out until the end. **Most trades happen as early as possible:** 158 of 258 in round 2, the first round anyone can accept an offer. Then they tail off: 51, 20, 13 and 16 in rounds 3–6.
+
+The late rounds are full of agents for whom no good deal exists. **Of 602 agent turns in rounds 5–6, only 21 (3%) had any partner left with whom a trade could profit both sides.** The rest were leftovers: buyers whose maximum is below every remaining seller's cost, and sellers whose minimum is above every remaining buyer's value. For them the right move is to walk away.
+
+| Rounds 5–6, no profitable deal possible | Turns | Broke the limit anyway |
+|---|---|---|
+| Qwen3-8B | 272 | 15 (6%) |
+| GPT-OSS-20B | 309 | 8 (3%) |
+| Opus 5.5 (seed 0) | 62 | 0 |
+
+So it's a **selection effect plus deadline pressure.** By the end, only agents facing bad offers remain, and the "nothing / last round" argument pushes a few of them to take one. Most weak-agent turns still walk away correctly. The failures come from the small share that rationalize "any deal beats none."
+
+**A human parallel:** in human bargaining experiments, agreements pile up at the deadline (Roth, Murnighan and Schoumaker, 1988, *American Economic Review*). That's a different pattern from ours, though. Our trades pile up at the *start*, and only the leftovers misbehave at the end. One plausible reason, which we haven't tested, is that the agents are trained to finish the task: "Maria needs a bike" can read as a goal to complete at almost any price. That would explain buyers overpaying, but less well sellers underselling.
 
 ## Problem 2: the wrong pairs trade
 

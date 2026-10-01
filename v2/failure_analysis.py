@@ -60,7 +60,9 @@ def limit_violations(backend):
                 call = next(x for x in calls if x["agent_id"] == agent and x["kind"] == "negotiation" and x["round"] == rnd)
                 reasoning = (call["thinking"] or "") + " " + (call["text"] or "")  # truncated thinking lands in text
                 out.append({"run": run, "agent": agent, "model": call["model"].split("/")[-1], "how": how, "round": rnd,
-                            "retried": call["retried"], "noticed": bool(NOTICED.search(reasoning)),
+                            "retried": call["retried"],
+                            # cut off by the token cap: either retried, or the parser found JSON inside unfinished reasoning
+                            "truncated": call["retried"] or "length" in str(call["stop_reason"]), "noticed": bool(NOTICED.search(reasoning)),
                             "deadline_logic": bool(DEADLINE.search(reasoning)), "wait_loop": reasoning.count("Wait") >= 5})
     return out
 
@@ -93,6 +95,35 @@ def wrong_pairs_by_round(backend):
     return {r: (wrong[r], tot[r]) for r in sorted(tot)}
 
 
+def late_rounds(backend):
+    """Agent turns in rounds 5-6: was any profitable partner still active, and did the agent break its limit?"""
+    out = []
+    for _, seed, ev, calls in runs(backend):
+        bs, ss = draw_economy(seed)
+        B, S = {b.id: b for b in bs}, {s.id: s for s in ss}
+        model = {c["agent_id"]: c["model"].split("/")[-1] for c in calls}
+        trades = [e for e in ev if e["type"] == "trade"]
+        for r in (5, 6):
+            active = {c["agent_id"] for c in calls if c["kind"] == "negotiation" and c["round"] == r}
+            for a in active:
+                feasible = viol = False
+                if a in S:
+                    g = S[a].good
+                    buyers = [x for x in active if x in B and g in B[x].values
+                              and not any(t["buyer"] == x and t["good"] == g and t["round"] < r for t in trades)]
+                    feasible = any(B[x].values[g] >= S[a].cost for x in buyers)
+                    viol = any(t["seller"] == a and t["round"] == r and t["price"] < S[a].cost - 0.5 for t in trades)
+                else:
+                    for g, v in B[a].values.items():
+                        if any(t["buyer"] == a and t["good"] == g and t["round"] < r for t in trades):
+                            continue
+                        feasible |= any(S[x].cost <= v for x in active if x in S and S[x].good == g)
+                        viol |= any(t["buyer"] == a and t["good"] == g and t["round"] == r and t["price"] > v + 0.5
+                                    for t in trades)
+                out.append({"model": model[a], "feasible": feasible, "viol": viol})
+    return out
+
+
 def main():
     for backend, label in (("tinker", "Qwen3-8B + GPT-OSS-20B (30 chat markets)"), ("claude-cli", "Opus 5.5 (3 chat markets, seed 0)")):
         rows = list(welfare_loss(backend))
@@ -116,6 +147,19 @@ def main():
             print(f"  'Wait...' loops (5+ in the reasoning): {sum(x['wait_loop'] for x in v)}")
             print(f"  'nothing / unsold / last round' logic: {sum(x['deadline_logic'] for x in v)}")
             print(f"  in the last two rounds: {sum(x['round'] >= 5 for x in v)}")
+            clean = [x for x in v if not x["truncated"]]
+            print(f"  not cut off by the token cap: {len(clean)} (noticed the violation first: {sum(x['noticed'] for x in clean)}; "
+                  f"'nothing / last round' logic: {sum(x['deadline_logic'] for x in clean)})")
+        trades = sum(1 for _, _, ev, _ in runs(backend) for e in ev if e["type"] == "trade")
+        by_round = Counter(e["round"] for _, _, ev, _ in runs(backend) for e in ev if e["type"] == "trade")
+        print(f"trades by round: {dict(sorted(by_round.items()))} (total {trades})")
+        late = late_rounds(backend)
+        if late:
+            print(f"agent turns in rounds 5-6: {len(late)}; with any profitable partner still active: "
+                  f"{sum(x['feasible'] for x in late)}")
+            for m in sorted({x["model"] for x in late}):
+                dead = [x for x in late if x["model"] == m and not x["feasible"]]
+                print(f"  {m}: dead-end turns {len(dead)}, broke the limit anyway {sum(x['viol'] for x in dead)}")
 
 
 if __name__ == "__main__":
