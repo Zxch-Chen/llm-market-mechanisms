@@ -108,6 +108,36 @@ Seeds 0–1, both mechanisms, all three framings; every agent in a market is the
 
 Reproduce with `python -m v2.failure_analysis tinker-gptoss120b tinker-qwen38-27b`. The tables are in each folder's `results.md`.
 
+### 7b. Mixed vs. single-model markets: is it the mixing or the model size?
+
+The small-model markets mixed two models, while the middle-tier markets used one. So "the small models failed" could mean they're too small, or that mixing models causes trouble. We ran the missing cells of that 2×2, all on seeds 0–1 with both mechanisms and all three framings (12 runs each):
+- **Small, single model:** Qwen3-8B alone and GPT-OSS-20B alone, at the same 2,048-token cap as the small mix. $1.00 and $0.46. Data: `outputs/v2/tinker-qwen3-8b-solo/`, `outputs/v2/tinker-gptoss20b-solo/`.
+- **Middle tier, mixed:** GPT-OSS-120B and Qwen3.8-27B in the same markets, 4,096-token cap, run twice with the model assignment swapped so each model plays every agent position once. $4.62 and $4.30. Data: `outputs/v2/tinker-mix-120b-qwen38/`, `outputs/v2/tinker-mix-qwen38-120b-swapped/`.
+
+| Chat, seeds 0–1 | Efficiency, mean (worst market) | Trades that broke a client's limit | Opening offers at the client's exact limit |
+|---|---|---|---|
+| Qwen3-8B alone | 58% (−4%) | 11 of 51 (10 after the token cap) | 68% |
+| GPT-OSS-20B alone | 65% (17%) | 7 of 49 | 49% |
+| Small mix (Qwen3-8B + GPT-OSS-20B) | 69% (35%) | 7 of 46 | 55% |
+| GPT-OSS-120B alone | 92% (78%) | 1 of 44 | 18% |
+| Qwen3.8-27B alone | 96% (93%) | 0 of 41 | 0% |
+| Middle mix, both assignments (12 markets) | 88% (53%) | 3 of 80 | 120B 14%, Qwen3.8 1% |
+
+**1. It's the model size, not the mixing.** Small models trading only with themselves did no better than the small mix (58% and 65% vs 69%), and they still opened at their client's limit and broke limits. Middle-tier models in a mixed market kept their own behavior: the same opening-at-limit rates and the same honesty as alone (planner misreports under the honest framing: 120B 2 of 55, Qwen3.8 19 of 55), with almost no limit violations.
+
+**2. The mixed middle tier's lower efficiency is mostly noise.** The first assignment averaged 85% and the swapped one 92%, so pooled it's 88%, close to the single-model range. The two worst markets were both seed 1, which has only 4 good trades, so one wrong pair costs a lot. In both, the cheapest laptop went to a low-value 120B buyer from a 120B seller, the same mistake GPT-OSS-120B made trading alone.
+
+**3. New: the less honest model takes most of the gains from the more honest one.** Across the 37 trades between the two models (both assignments), Qwen3.8-27B got more than half the gains from trade in **30**. On average it got **76%** (80% weighted by gain), and it was 76% both as buyer and as seller.
+- In the first assignment it was 19 of 19 (88% mean). With positions swapped, the edge was smaller but still there: 11 of 18 (63% mean, 71% weighted). So part of the first run's gap came from positions, and part is the model.
+- The mechanism: Qwen3.8 accepted 28 of the 37, so the price was usually set by a 120B offer. GPT-OSS-120B posts offers close to its client's limit (it opens at the exact limit 12–17% of the time; Qwen3.8 about 1%), and Qwen3.8 waits and takes the best of them.
+
+This matters for consumer agents: how well your agent does depends on what agent is on the other side, not only on your own. A transparent agent is easy to take advantage of.
+
+**Caveats:**
+- 2 seeds. The 37 cross-model trades come from 12 markets, so they aren't independent.
+- The small single-model runs hit the token cap often (Qwen3-8B: 209 of 1,016 calls), as in the original small mix.
+- Treat these as directions, not effect sizes.
+
 ## 8. Open questions and next experiments
 
 - **The objectives experiment** in section 6.
@@ -115,5 +145,5 @@ Reproduce with `python -m v2.failure_analysis tinker-gptoss120b tinker-qwen38-27
 - **Business-side sellers:** inventory, repeated sales, and the possibility of collusion.
 - **Guardrails:** does a platform-enforced limit fix the consumer-side failures without hurting efficiency?
 - **A clean Opus comparison:** using an API key and more seeds instead of `claude -p`.
-- **More seeds for the middle tier,** and mixed-model markets: do honest agents get exploited by dishonest ones?
+- **More seeds for mixed markets.** Section 7b suggests transparent agents get exploited by strategic ones; confirm with more seeds, and test whether a guardrail (never post at the client's limit) removes the gap.
 - **Objective priority:** state explicitly whether honesty or the client's payoff wins, and see whether Qwen3.8's "forgetting" goes away.
