@@ -123,6 +123,20 @@ Data: `outputs/v2/claude-cli/`.
 
 ---
 
+## Why weak agents fail and Opus doesn't
+
+Reading the reasoning logs, the weak models failed for four reasons:
+- They open by bidding their client's real limit. That's 65% of Qwen's opening offers and 47% of GPT-OSS's; Opus did it 0% of the time.
+- They accept the first workable deal, so the wrong pairs trade.
+- They fold at the deadline on the theory that "unsold earns nothing."
+- Their reasoning often spots that a price breaks the limit (31 of 37 cases), and they take it anyway. Many of these went through loops that hit the token cap.
+
+Opus, by contrast, asks sellers for competing quotes, sends about 3× more messages, and walks away from bad deals: *"the laptop goes unsold, which is better for Daniel than a sale below his floor."*
+
+Full write-up with quotes: [`analysis/v2_why_agents_fail.md`](analysis/v2_why_agents_fail.md). Reproduce the numbers with `python -m v2.failure_analysis`.
+
+---
+
 ## Limits that apply throughout
 
 - **Few markets.** 10 per condition, which gives wide intervals, especially in chat.
