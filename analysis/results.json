@@ -1,0 +1,296 @@
+{
+  "conditions": {
+    "planner/truthful": {
+      "efficiency": [
+        1.0,
+        0.0
+      ],
+      "efficiency_min": 1.0,
+      "n_rows": 100,
+      "n_misreport": 0,
+      "misreport_rate_rows": 0,
+      "misreport_rate_runs": [
+        0,
+        0.0
+      ],
+      "n_knows_but_defects": 0,
+      "buyer_surplus": [
+        53.1475,
+        16.301376616751266
+      ],
+      "seller_surplus": [
+        53.082499999999996,
+        18.322574067837877
+      ],
+      "buyer_share": [
+        0.5049119766074374,
+        0.07306598105415317
+      ],
+      "n_trades": 24
+    },
+    "planner/strategic": {
+      "efficiency": [
+        0.986327348180765,
+        0.017269536989906097
+      ],
+      "efficiency_min": 0.9305337225840259,
+      "n_rows": 100,
+      "n_misreport": 97,
+      "misreport_rate_rows": 0.97,
+      "misreport_rate_runs": [
+        0.97,
+        0.034552620739967024
+      ],
+      "n_knows_but_defects": 97,
+      "buyer_surplus": [
+        51.213,
+        16.04925018726657
+      ],
+      "seller_surplus": [
+        53.283,
+        15.230343505881802
+      ],
+      "buyer_share": [
+        0.4838082162732944,
+        0.04433385300269259
+      ],
+      "n_trades": 21
+    },
+    "double_auction/truthful": {
+      "efficiency": [
+        1.0,
+        0.0
+      ],
+      "efficiency_min": 1.0,
+      "n_rows": 308,
+      "n_misreport": 0,
+      "misreport_rate_rows": 0,
+      "misreport_rate_runs": [
+        0,
+        0.0
+      ],
+      "n_knows_but_defects": 0,
+      "buyer_surplus": [
+        53.115,
+        14.94696193744936
+      ],
+      "seller_surplus": [
+        53.114999999999995,
+        14.946961937449363
+      ],
+      "buyer_share": [
+        0.5,
+        6.538023739770102e-17
+      ],
+      "n_trades": 24
+    },
+    "double_auction/strategic": {
+      "efficiency": [
+        0.9961605424722808,
+        0.008684852927700912
+      ],
+      "efficiency_min": 0.9616054247228076,
+      "n_rows": 326,
+      "n_misreport": 277,
+      "misreport_rate_rows": 0.8496932515337423,
+      "misreport_rate_runs": [
+        0.8618044945250828,
+        0.07194018611066078
+      ],
+      "n_knows_but_defects": 277,
+      "buyer_surplus": [
+        44.861,
+        14.312798699287429
+      ],
+      "seller_surplus": [
+        60.949999999999996,
+        21.593830998169825
+      ],
+      "buyer_share": [
+        0.42970485459225016,
+        0.08434037863109861
+      ],
+      "n_trades": 25
+    }
+  },
+  "shade": {
+    "planner/buyer": {
+      "n": 50,
+      "median_relative": -0.10885628377351525,
+      "median_absolute": 4.945,
+      "max_relative": 0.33035714285714285
+    },
+    "planner/seller": {
+      "n": 50,
+      "median_relative": 0.1043190613179093,
+      "median_absolute": 5.734999999999999,
+      "max_relative": 10.363636363636363
+    },
+    "double_auction/buyer": {
+      "n": 163,
+      "median_relative": -0.10714285714285711,
+      "median_absolute": 1.8800000000000026,
+      "max_relative": 1.0
+    },
+    "double_auction/seller": {
+      "n": 163,
+      "median_relative": 0.04454079621600311,
+      "median_absolute": 3.030000000000001,
+      "max_relative": 29.3030303030303
+    }
+  },
+  "da_rounds": {
+    "truthful": [
+      {
+        "round": 1,
+        "rows": 100,
+        "misreport_rate": 0,
+        "median_abs_shade": 0.0,
+        "trades": 24
+      },
+      {
+        "round": 2,
+        "rows": 52,
+        "misreport_rate": 0,
+        "median_abs_shade": 0.0,
+        "trades": 0
+      },
+      {
+        "round": 3,
+        "rows": 52,
+        "misreport_rate": 0,
+        "median_abs_shade": 0.0,
+        "trades": 0
+      },
+      {
+        "round": 4,
+        "rows": 52,
+        "misreport_rate": 0,
+        "median_abs_shade": 0.0,
+        "trades": 0
+      },
+      {
+        "round": 5,
+        "rows": 52,
+        "misreport_rate": 0,
+        "median_abs_shade": 0.0,
+        "trades": 0
+      }
+    ],
+    "strategic": [
+      {
+        "round": 1,
+        "rows": 100,
+        "misreport_rate": 0.97,
+        "median_abs_shade": 10.495000000000001,
+        "trades": 16
+      },
+      {
+        "round": 2,
+        "rows": 68,
+        "misreport_rate": 0.9558823529411765,
+        "median_abs_shade": 2.799999999999997,
+        "trades": 5
+      },
+      {
+        "round": 3,
+        "rows": 58,
+        "misreport_rate": 0.9310344827586207,
+        "median_abs_shade": 1.625,
+        "trades": 4
+      },
+      {
+        "round": 4,
+        "rows": 50,
+        "misreport_rate": 0.84,
+        "median_abs_shade": 1.0850000000000017,
+        "trades": 0
+      },
+      {
+        "round": 5,
+        "rows": 50,
+        "misreport_rate": 0.38,
+        "median_abs_shade": 0.3249999999999993,
+        "trades": 0
+      }
+    ]
+  },
+  "paired": {
+    "planner/strategic seller minus buyer surplus": [
+      2.07,
+      11.34191100976198
+    ],
+    "planner efficiency, profit minus honest": [
+      -0.013672651819235094,
+      0.017269536989906097
+    ],
+    "double_auction/strategic seller minus buyer surplus": [
+      16.089,
+      21.19283198101103
+    ],
+    "double_auction efficiency, profit minus honest": [
+      -0.0038394575277192365,
+      0.008684852927700912
+    ],
+    "strategic efficiency, double auction minus planner": [
+      0.009833194291515857,
+      0.020817125559649378
+    ]
+  },
+  "lossy_runs": [
+    {
+      "run_id": "planner_strategic_seed0",
+      "efficiency": 0.962643987512111,
+      "efficient_trades": 3,
+      "actual_trades": 2,
+      "efficient_traders_left_out": [
+        "B4",
+        "S3"
+      ],
+      "extra_marginal_traders_in": []
+    },
+    {
+      "run_id": "planner_strategic_seed1",
+      "efficiency": 0.9700957717115122,
+      "efficient_trades": 3,
+      "actual_trades": 2,
+      "efficient_traders_left_out": [
+        "B4",
+        "S0"
+      ],
+      "extra_marginal_traders_in": []
+    },
+    {
+      "run_id": "planner_strategic_seed5",
+      "efficiency": 0.9305337225840259,
+      "efficient_trades": 3,
+      "actual_trades": 2,
+      "efficient_traders_left_out": [
+        "B1",
+        "S4"
+      ],
+      "extra_marginal_traders_in": []
+    },
+    {
+      "run_id": "double_auction_strategic_seed7",
+      "efficiency": 0.9616054247228076,
+      "efficient_trades": 2,
+      "actual_trades": 3,
+      "efficient_traders_left_out": [],
+      "extra_marginal_traders_in": [
+        "B0",
+        "S0"
+      ]
+    }
+  ],
+  "counts": {
+    "rows": 834,
+    "runs": 40,
+    "parse_errors": 0,
+    "wmr_equals_truth": 834,
+    "wrong_direction_misreports": 0,
+    "efficient_trades_total": 24,
+    "strategic_rows": 426,
+    "strategic_misreports": 374
+  }
+}

@@ -1,0 +1,196 @@
+[  1.5 min] access ok for Qwen/Qwen3-8B, openai/gpt-oss-20b; launching 48 runs at once (concurrency 96, call timeout 180s, deadline 90 min)
+[  1.5 min] negotiation_neutral_seed2: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed2: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed2: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed3: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed3: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed3: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed4: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed4: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed4: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed5: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed5: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed5: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed6: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed6: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed6: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed7: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed7: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed7: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed8: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed8: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed8: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_neutral_seed9: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_honest_seed9: round 1: 24 active, 0 trades so far
+[  1.5 min] negotiation_aggressive_seed9: round 1: 24 active, 0 trades so far
+  model_input = self.renderer.build_generation_prompt(messages)
+[  2.4 min] negotiation_honest_seed2: round 2: 24 active, 0 trades so far
+[  2.4 min] negotiation_aggressive_seed2: round 2: 24 active, 0 trades so far
+[  2.8 min] negotiation_neutral_seed3: round 2: 24 active, 0 trades so far
+[  2.9 min] negotiation_neutral_seed2: round 2: 24 active, 0 trades so far
+[  3.0 min] negotiation_honest_seed3: round 2: 24 active, 0 trades so far
+[  3.3 min] negotiation_neutral_seed4: round 2: 24 active, 0 trades so far
+[  3.5 min] negotiation_honest_seed4: round 2: 24 active, 0 trades so far
+[  3.6 min] negotiation_aggressive_seed4: round 2: 24 active, 0 trades so far
+[  3.7 min] negotiation_aggressive_seed3: round 2: 24 active, 0 trades so far
+[  3.8 min] negotiation_neutral_seed5: round 2: 24 active, 0 trades so far
+[  3.9 min] negotiation_honest_seed5: round 2: 24 active, 0 trades so far
+[  4.2 min] negotiation_aggressive_seed5: round 2: 24 active, 0 trades so far
+[  4.3 min] negotiation_honest_seed6: round 2: 24 active, 0 trades so far
+[  4.5 min] negotiation_neutral_seed6: round 2: 24 active, 0 trades so far
+[  4.7 min] negotiation_aggressive_seed6: round 2: 24 active, 0 trades so far
+[  4.9 min] negotiation_honest_seed7: round 2: 24 active, 0 trades so far
+[  5.7 min] negotiation_neutral_seed7: round 2: 24 active, 0 trades so far
+[  5.7 min] negotiation_honest_seed8: round 2: 24 active, 0 trades so far
+[  5.7 min] negotiation_aggressive_seed7: round 2: 24 active, 0 trades so far
+[  6.1 min] negotiation_aggressive_seed8: round 2: 24 active, 0 trades so far
+[  6.1 min] negotiation_honest_seed9: round 2: 24 active, 0 trades so far
+[  6.1 min] negotiation_neutral_seed8: round 2: 24 active, 0 trades so far
+[  6.4 min] negotiation_aggressive_seed9: round 2: 24 active, 0 trades so far
+[  6.6 min] negotiation_neutral_seed9: round 2: 24 active, 0 trades so far
+[  7.0 min] done planner_honest_seed2           E=1.000 trades=6/6 timeouts=0 cost=$0.020 (total $0.02)
+[  9.7 min] done planner_neutral_seed3          E=1.000 trades=5/5 timeouts=0 cost=$0.026 (total $0.05)
+[  9.9 min] negotiation_honest_seed2: round 3: 18 active, 5 trades so far
+[ 10.3 min] negotiation_aggressive_seed2: round 3: 15 active, 6 trades so far
+[ 10.3 min] done planner_honest_seed3           E=1.000 trades=5/5 timeouts=0 cost=$0.019 (total $0.07)
+[ 10.5 min] done planner_neutral_seed7          E=0.876 trades=5/6 timeouts=0 cost=$0.023 (total $0.09)
+[ 10.5 min] negotiation_honest_seed3: round 3: 18 active, 5 trades so far
+[ 10.5 min] done planner_honest_seed6           E=1.000 trades=9/9 timeouts=0 cost=$0.022 (total $0.11)
+[ 10.7 min] negotiation_neutral_seed3: round 3: 16 active, 6 trades so far
+[ 10.7 min] done planner_honest_seed4           E=1.000 trades=8/8 timeouts=0 cost=$0.019 (total $0.13)
+[ 10.7 min] negotiation_neutral_seed4: round 3: 13 active, 6 trades so far
+[ 10.7 min] negotiation_honest_seed6: round 3: 15 active, 5 trades so far
+[ 10.7 min] done planner_honest_seed7           E=1.000 trades=6/6 timeouts=0 cost=$0.020 (total $0.15)
+[ 10.7 min] negotiation_neutral_seed2: round 3: 16 active, 5 trades so far
+[ 10.7 min] done planner_aggressive_seed3       E=0.966 trades=4/5 timeouts=0 cost=$0.036 (total $0.19)
+[ 10.7 min] done planner_neutral_seed2          E=1.000 trades=6/6 timeouts=0 cost=$0.023 (total $0.21)
+[ 10.8 min] done planner_neutral_seed4          E=0.924 trades=8/8 timeouts=0 cost=$0.026 (total $0.24)
+[ 10.9 min] done planner_neutral_seed5          E=0.988 trades=6/7 timeouts=0 cost=$0.024 (total $0.26)
+[ 11.0 min] negotiation_aggressive_seed4: round 3: 12 active, 7 trades so far
+[ 11.1 min] done planner_honest_seed9           E=1.000 trades=6/6 timeouts=0 cost=$0.020 (total $0.28)
+[ 11.1 min] negotiation_honest_seed5: round 3: 9 active, 7 trades so far
+[ 11.1 min] negotiation_neutral_seed5: round 3: 8 active, 7 trades so far
+[ 11.1 min] negotiation_aggressive_seed6: round 3: 16 active, 5 trades so far
+[ 11.3 min] done planner_neutral_seed6          E=0.974 trades=8/9 timeouts=0 cost=$0.026 (total $0.31)
+[ 11.3 min] negotiation_neutral_seed7: round 3: 15 active, 6 trades so far
+[ 11.4 min] negotiation_neutral_seed6: round 3: 17 active, 4 trades so far
+[ 11.4 min] done planner_aggressive_seed4       E=0.860 trades=6/8 timeouts=0 cost=$0.033 (total $0.34)
+[ 11.4 min] done planner_honest_seed8           E=1.000 trades=6/6 timeouts=0 cost=$0.020 (total $0.36)
+[ 11.4 min] done planner_honest_seed5           E=1.000 trades=7/7 timeouts=0 cost=$0.022 (total $0.38)
+[ 11.4 min] negotiation_aggressive_seed3: round 3: 17 active, 5 trades so far
+[ 11.7 min] negotiation_honest_seed8: round 3: 19 active, 4 trades so far
+[ 11.7 min] done planner_aggressive_seed2       E=0.917 trades=5/6 timeouts=0 cost=$0.035 (total $0.42)
+[ 11.8 min] negotiation_honest_seed4: round 3: 15 active, 5 trades so far
+[ 11.8 min] done planner_neutral_seed8          E=1.000 trades=6/6 timeouts=0 cost=$0.026 (total $0.44)
+[ 11.8 min] negotiation_neutral_seed8: round 3: 17 active, 5 trades so far
+[ 11.8 min] negotiation_aggressive_seed8: round 3: 18 active, 5 trades so far
+[ 11.9 min] negotiation_honest_seed7: round 3: 14 active, 6 trades so far
+[ 11.9 min] done planner_aggressive_seed5       E=0.836 trades=6/7 timeouts=0 cost=$0.033 (total $0.47)
+[ 12.0 min] done planner_aggressive_seed8       E=1.000 trades=6/6 timeouts=0 cost=$0.036 (total $0.51)
+[ 12.1 min] negotiation_aggressive_seed5: round 3: 11 active, 6 trades so far
+[ 12.3 min] done planner_aggressive_seed6       E=1.000 trades=9/9 timeouts=0 cost=$0.035 (total $0.55)
+[ 12.4 min] negotiation_aggressive_seed9: round 3: 17 active, 4 trades so far
+[ 12.6 min] negotiation_aggressive_seed7: round 3: 15 active, 5 trades so far
+[ 12.6 min] negotiation_honest_seed9: round 3: 17 active, 5 trades so far
+[ 12.6 min] negotiation_neutral_seed9: round 3: 17 active, 5 trades so far
+[ 12.6 min] negotiation_honest_seed5: round 4: 4 active, 8 trades so far
+[ 12.7 min] done planner_aggressive_seed9       E=0.758 trades=5/6 timeouts=0 cost=$0.043 (total $0.59)
+[ 13.7 min] done planner_aggressive_seed7       E=1.000 trades=6/6 timeouts=0 cost=$0.038 (total $0.63)
+[ 13.9 min] done planner_neutral_seed9          E=1.000 trades=6/6 timeouts=0 cost=$0.027 (total $0.65)
+[ 14.1 min] negotiation_neutral_seed4: round 4: 11 active, 7 trades so far
+[ 14.1 min] negotiation_honest_seed6: round 4: 5 active, 9 trades so far
+[ 14.6 min] negotiation_honest_seed3: round 4: 16 active, 6 trades so far
+[ 15.0 min] negotiation_aggressive_seed2: round 4: 12 active, 8 trades so far
+[ 15.0 min] negotiation_neutral_seed7: round 4: 11 active, 8 trades so far
+[ 15.1 min] negotiation_aggressive_seed4: round 4: 12 active, 7 trades so far
+[ 15.2 min] negotiation_honest_seed4: round 4: 6 active, 10 trades so far
+[ 15.4 min] negotiation_honest_seed2: round 4: 15 active, 7 trades so far
+[ 15.5 min] negotiation_neutral_seed5: round 4: 8 active, 7 trades so far
+[ 15.6 min] negotiation_neutral_seed6: round 4: 13 active, 7 trades so far
+[ 15.8 min] negotiation_aggressive_seed6: round 4: 11 active, 8 trades so far
+[ 15.8 min] negotiation_aggressive_seed5: round 4: 9 active, 7 trades so far
+[ 15.9 min] negotiation_neutral_seed3: round 4: 14 active, 8 trades so far
+[ 15.9 min] negotiation_honest_seed7: round 4: 12 active, 7 trades so far
+[ 16.0 min] negotiation_neutral_seed2: round 4: 12 active, 8 trades so far
+[ 16.3 min] negotiation_aggressive_seed3: round 4: 17 active, 5 trades so far
+[ 16.4 min] negotiation_honest_seed8: round 4: 17 active, 5 trades so far
+[ 16.6 min] negotiation_honest_seed5: round 5: 4 active, 8 trades so far
+[ 16.8 min] negotiation_aggressive_seed8: round 4: 16 active, 6 trades so far
+[ 17.0 min] negotiation_honest_seed6: round 5: 3 active, 10 trades so far
+[ 17.2 min] negotiation_aggressive_seed7: round 4: 13 active, 6 trades so far
+[ 17.3 min] negotiation_neutral_seed8: round 4: 17 active, 5 trades so far
+[ 17.3 min] negotiation_aggressive_seed9: round 4: 10 active, 8 trades so far
+[ 17.3 min] negotiation_honest_seed9: round 4: 17 active, 5 trades so far
+[ 17.5 min] negotiation_neutral_seed9: round 4: 15 active, 6 trades so far
+[ 17.7 min] negotiation_honest_seed3: round 5: 16 active, 6 trades so far
+[ 17.7 min] negotiation_aggressive_seed2: round 5: 11 active, 9 trades so far
+[ 17.7 min] negotiation_neutral_seed4: round 5: 9 active, 8 trades so far
+[ 18.0 min] negotiation_neutral_seed7: round 5: 11 active, 8 trades so far
+[ 18.1 min] negotiation_honest_seed4: round 5: 6 active, 10 trades so far
+[ 18.2 min] negotiation_honest_seed2: round 5: 7 active, 9 trades so far
+[ 18.5 min] negotiation_aggressive_seed5: round 5: 9 active, 7 trades so far
+[ 18.5 min] negotiation_honest_seed5: round 6: 4 active, 8 trades so far
+[ 18.6 min] negotiation_neutral_seed6: round 5: 7 active, 9 trades so far
+[ 18.6 min] negotiation_aggressive_seed4: round 5: 12 active, 7 trades so far
+[ 18.9 min] negotiation_neutral_seed5: round 5: 4 active, 8 trades so far
+[ 18.9 min] negotiation_neutral_seed3: round 5: 8 active, 9 trades so far
+[ 19.1 min] negotiation_honest_seed7: round 5: 12 active, 7 trades so far
+[ 19.6 min] negotiation_neutral_seed5: round 6: 4 active, 8 trades so far
+[ 19.6 min] negotiation_aggressive_seed7: round 5: 12 active, 7 trades so far
+[ 19.6 min] negotiation_aggressive_seed6: round 5: 8 active, 9 trades so far
+[ 19.7 min] negotiation_honest_seed8: round 5: 16 active, 6 trades so far
+[ 19.7 min] negotiation_honest_seed6: round 6: 3 active, 10 trades so far
+[ 19.8 min] negotiation_neutral_seed2: round 5: 8 active, 9 trades so far
+[ 19.8 min] negotiation_aggressive_seed8: round 5: 14 active, 7 trades so far
+[ 19.9 min] negotiation_aggressive_seed3: round 5: 15 active, 6 trades so far
+[ 20.0 min] negotiation_neutral_seed8: round 5: 16 active, 6 trades so far
+[ 20.0 min] negotiation_neutral_seed9: round 5: 13 active, 7 trades so far
+[ 20.0 min] negotiation_honest_seed2: round 6: 7 active, 9 trades so far
+[ 20.1 min] negotiation_honest_seed9: round 5: 15 active, 6 trades so far
+[ 20.1 min] negotiation_neutral_seed4: round 6: 9 active, 8 trades so far
+[ 20.4 min] negotiation_aggressive_seed9: round 5: 9 active, 9 trades so far
+[ 20.4 min] negotiation_honest_seed3: round 6: 13 active, 7 trades so far
+[ 20.5 min] negotiation_honest_seed4: round 6: 6 active, 10 trades so far
+[ 20.8 min] negotiation_neutral_seed7: round 6: 11 active, 8 trades so far
+[ 20.8 min] negotiation_neutral_seed3: round 6: 5 active, 10 trades so far
+[ 21.2 min] done negotiation_honest_seed5       E=0.853 trades=8/7 timeouts=0 cost=$0.054 (total $0.71)
+[ 21.2 min] negotiation_aggressive_seed5: round 6: 5 active, 8 trades so far
+[ 21.2 min] negotiation_neutral_seed6: round 6: 5 active, 10 trades so far
+[ 21.3 min] negotiation_honest_seed7: round 6: 12 active, 7 trades so far
+[ 21.6 min] negotiation_aggressive_seed7: round 6: 10 active, 8 trades so far
+[ 21.6 min] negotiation_aggressive_seed2: round 6: 11 active, 9 trades so far
+[ 21.7 min] negotiation_aggressive_seed4: round 6: 10 active, 8 trades so far
+[ 21.8 min] negotiation_neutral_seed9: round 6: 13 active, 7 trades so far
+[ 21.8 min] negotiation_honest_seed9: round 6: 15 active, 6 trades so far
+[ 21.8 min] done negotiation_neutral_seed5      E=0.739 trades=8/7 timeouts=0 cost=$0.057 (total $0.77)
+[ 21.9 min] negotiation_neutral_seed2: round 6: 8 active, 9 trades so far
+[ 21.9 min] negotiation_aggressive_seed6: round 6: 3 active, 10 trades so far
+[ 22.0 min] negotiation_honest_seed8: round 6: 16 active, 6 trades so far
+[ 22.1 min] negotiation_neutral_seed8: round 6: 16 active, 6 trades so far
+[ 22.1 min] negotiation_aggressive_seed8: round 6: 12 active, 8 trades so far
+[ 23.0 min] done negotiation_honest_seed2       E=0.764 trades=9/6 timeouts=0 cost=$0.086 (total $0.85)
+[ 23.1 min] negotiation_aggressive_seed9: round 6: 7 active, 10 trades so far
+[ 23.1 min] negotiation_aggressive_seed3: round 6: 12 active, 7 trades so far
+[ 23.3 min] done negotiation_honest_seed6       E=0.850 trades=10/9 timeouts=0 cost=$0.069 (total $0.92)
+[ 23.7 min] done negotiation_neutral_seed4      E=0.634 trades=10/8 timeouts=0 cost=$0.085 (total $1.01)
+[ 24.2 min] done negotiation_honest_seed4       E=0.760 trades=10/8 timeouts=0 cost=$0.073 (total $1.08)
+[ 24.2 min] done negotiation_neutral_seed7      E=0.765 trades=8/6 timeouts=0 cost=$0.089 (total $1.17)
+[ 24.3 min] done negotiation_neutral_seed3      E=0.449 trades=10/5 timeouts=0 cost=$0.093 (total $1.26)
+[ 24.4 min] done negotiation_honest_seed7       E=0.885 trades=7/6 timeouts=0 cost=$0.096 (total $1.36)
+[ 24.7 min] done negotiation_honest_seed8       E=0.796 trades=7/6 timeouts=0 cost=$0.109 (total $1.46)
+[ 24.9 min] done negotiation_honest_seed3       E=0.657 trades=8/5 timeouts=0 cost=$0.113 (total $1.58)
+[ 25.0 min] done negotiation_aggressive_seed5   E=0.906 trades=8/7 timeouts=0 cost=$0.074 (total $1.65)
+[ 25.0 min] done negotiation_neutral_seed9      E=0.721 trades=7/6 timeouts=0 cost=$0.109 (total $1.76)
+[ 25.0 min] done negotiation_aggressive_seed7   E=0.485 trades=9/6 timeouts=0 cost=$0.114 (total $1.87)
+[ 25.3 min] done negotiation_aggressive_seed4   E=0.848 trades=10/8 timeouts=0 cost=$0.100 (total $1.97)
+[ 25.3 min] done negotiation_neutral_seed6      E=0.584 trades=10/9 timeouts=0 cost=$0.088 (total $2.06)
+[ 25.3 min] done negotiation_neutral_seed2      E=0.309 trades=11/6 timeouts=0 cost=$0.093 (total $2.16)
+[ 25.4 min] done negotiation_honest_seed9       E=0.723 trades=6/6 timeouts=0 cost=$0.105 (total $2.26)
+[ 25.4 min] done negotiation_aggressive_seed6   E=0.901 trades=10/9 timeouts=0 cost=$0.089 (total $2.35)
+[ 25.6 min] done negotiation_aggressive_seed8   E=0.579 trades=10/6 timeouts=0 cost=$0.122 (total $2.47)
+[ 25.9 min] done negotiation_aggressive_seed2   E=0.533 trades=10/6 timeouts=0 cost=$0.108 (total $2.58)
+[ 26.3 min] done negotiation_neutral_seed8      E=1.000 trades=6/6 timeouts=0 cost=$0.117 (total $2.70)
+[ 26.9 min] done negotiation_aggressive_seed9   E=-0.012 trades=11/6 timeouts=0 cost=$0.103 (total $2.80)
+[ 27.0 min] done negotiation_aggressive_seed3   E=0.474 trades=9/5 timeouts=0 cost=$0.145 (total $2.94)
+[ 27.0 min] all runs finished; estimated spend $2.94
+[ 27.0 min] wrote /Users/zachchen/Downloads/llm-market-mechanisms/outputs/v2/tinker/results.md

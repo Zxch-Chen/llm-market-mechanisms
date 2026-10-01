@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" width="680" height="320">
+<rect width="680" height="320" fill="#fcfcfb"/>
+<rect x="56" y="13" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="71.0" y="22.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Buyers</text>
+<rect x="132.2" y="13" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="147.2" y="22.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Sellers</text>
+<text x="56.0" y="52.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Planner (100 reports)</text>
+<line x1="56.0" y1="262.0" x2="336.0" y2="262.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="266.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0%</text>
+<line x1="56.0" y1="195.3" x2="336.0" y2="195.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="199.3" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20%</text>
+<line x1="56.0" y1="128.7" x2="336.0" y2="128.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="132.7" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">40%</text>
+<line x1="56.0" y1="62.0" x2="336.0" y2="62.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="66.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">60%</text>
+<path d="M60.0,262.0 V252.7 Q60.0,248.7 64.0,248.7 H71.0 Q75.0,248.7 75.0,252.7 V262.0 Z" fill="#2a78d6"/>
+<path d="M77.0,262.0 V259.3 Q77.0,255.3 81.0,255.3 H88.0 Q92.0,255.3 92.0,259.3 V262.0 Z" fill="#eb6834"/>
+<text x="76.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">under 0.5</text>
+<path d="M100.0,262.0 V226.0 Q100.0,222.0 104.0,222.0 H111.0 Q115.0,222.0 115.0,226.0 V262.0 Z" fill="#2a78d6"/>
+<path d="M117.0,262.0 V259.3 Q117.0,255.3 121.0,255.3 H128.0 Q132.0,255.3 132.0,259.3 V262.0 Z" fill="#eb6834"/>
+<text x="116.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0.5–2</text>
+<path d="M140.0,262.0 V152.7 Q140.0,148.7 144.0,148.7 H151.0 Q155.0,148.7 155.0,152.7 V262.0 Z" fill="#2a78d6"/>
+<path d="M157.0,262.0 V166.0 Q157.0,162.0 161.0,162.0 H168.0 Q172.0,162.0 172.0,166.0 V262.0 Z" fill="#eb6834"/>
+<text x="156.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2–5</text>
+<path d="M180.0,262.0 V99.3 Q180.0,95.3 184.0,95.3 H191.0 Q195.0,95.3 195.0,99.3 V262.0 Z" fill="#2a78d6"/>
+<path d="M197.0,262.0 V86.0 Q197.0,82.0 201.0,82.0 H208.0 Q212.0,82.0 212.0,86.0 V262.0 Z" fill="#eb6834"/>
+<text x="196.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5–10</text>
+<path d="M237.0,262.0 V232.7 Q237.0,228.7 241.0,228.7 H248.0 Q252.0,228.7 252.0,232.7 V262.0 Z" fill="#eb6834"/>
+<text x="236.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">10–20</text>
+<path d="M277.0,262.0 V259.3 Q277.0,255.3 281.0,255.3 H288.0 Q292.0,255.3 292.0,259.3 V262.0 Z" fill="#eb6834"/>
+<text x="276.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20–40</text>
+<text x="316.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">40+</text>
+<text x="196.0" y="294.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Distance between report and truth</text>
+<text x="380.0" y="52.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Double auction (326 reports)</text>
+<line x1="380.0" y1="262.0" x2="660.0" y2="262.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="374.0" y="266.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0%</text>
+<line x1="380.0" y1="195.3" x2="660.0" y2="195.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="374.0" y="199.3" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20%</text>
+<line x1="380.0" y1="128.7" x2="660.0" y2="128.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="374.0" y="132.7" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">40%</text>
+<line x1="380.0" y1="62.0" x2="660.0" y2="62.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="374.0" y="66.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">60%</text>
+<path d="M384.0,262.0 V206.7 Q384.0,202.7 388.0,202.7 H395.0 Q399.0,202.7 399.0,206.7 V262.0 Z" fill="#2a78d6"/>
+<path d="M401.0,262.0 V231.2 Q401.0,227.2 405.0,227.2 H412.0 Q416.0,227.2 416.0,231.2 V262.0 Z" fill="#eb6834"/>
+<text x="400.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">under 0.5</text>
+<path d="M424.0,262.0 V153.5 Q424.0,149.5 428.0,149.5 H435.0 Q439.0,149.5 439.0,153.5 V262.0 Z" fill="#2a78d6"/>
+<path d="M441.0,262.0 V169.9 Q441.0,165.9 445.0,165.9 H452.0 Q456.0,165.9 456.0,169.9 V262.0 Z" fill="#eb6834"/>
+<text x="440.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0.5–2</text>
+<path d="M464.0,262.0 V190.3 Q464.0,186.3 468.0,186.3 H475.0 Q479.0,186.3 479.0,190.3 V262.0 Z" fill="#2a78d6"/>
+<path d="M481.0,262.0 V184.2 Q481.0,180.2 485.0,180.2 H492.0 Q496.0,180.2 496.0,184.2 V262.0 Z" fill="#eb6834"/>
+<text x="480.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2–5</text>
+<path d="M504.0,262.0 V227.1 Q504.0,223.1 508.0,223.1 H515.0 Q519.0,223.1 519.0,227.1 V262.0 Z" fill="#2a78d6"/>
+<path d="M521.0,262.0 V225.1 Q521.0,221.1 525.0,221.1 H532.0 Q536.0,221.1 536.0,225.1 V262.0 Z" fill="#eb6834"/>
+<text x="520.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5–10</text>
+<path d="M544.0,262.0 V229.2 Q544.0,225.2 548.0,225.2 H555.0 Q559.0,225.2 559.0,229.2 V262.0 Z" fill="#2a78d6"/>
+<path d="M561.0,262.0 V214.9 Q561.0,210.9 565.0,210.9 H572.0 Q576.0,210.9 576.0,214.9 V262.0 Z" fill="#eb6834"/>
+<text x="560.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">10–20</text>
+<path d="M584.0,262.0 V255.8 Q584.0,251.8 588.0,251.8 H595.0 Q599.0,251.8 599.0,255.8 V262.0 Z" fill="#2a78d6"/>
+<path d="M601.0,262.0 V245.6 Q601.0,241.6 605.0,241.6 H612.0 Q616.0,241.6 616.0,245.6 V262.0 Z" fill="#eb6834"/>
+<text x="600.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20–40</text>
+<path d="M641.0,262.0 V257.8 Q641.0,253.8 645.0,253.8 H652.0 Q656.0,253.8 656.0,257.8 V262.0 Z" fill="#eb6834"/>
+<text x="640.0" y="277.0" font-size="10" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">40+</text>
+<text x="520.0" y="294.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Distance between report and truth</text>
+<text transform="rotate(-90 8 162)" x="8.0" y="162.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Share of reports</text>
+</svg>

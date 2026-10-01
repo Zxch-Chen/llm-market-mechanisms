@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 250" width="680" height="250">
+<rect width="680" height="250" fill="#fcfcfb"/>
+<text x="16.0" y="24.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Share of reports that misreport</text>
+<line x1="46.0" y1="196.0" x2="226.0" y2="196.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="40.0" y="200.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0%</text>
+<line x1="46.0" y1="118.0" x2="226.0" y2="118.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="40.0" y="122.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">50%</text>
+<line x1="46.0" y1="40.0" x2="226.0" y2="40.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="40.0" y="44.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">100%</text>
+<text x="64.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1</text>
+<text x="100.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2</text>
+<text x="136.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3</text>
+<text x="172.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">4</text>
+<text x="208.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5</text>
+<path d="M64.0,44.7 L100.0,46.9 L136.0,50.8 L172.0,65.0 L208.0,136.7" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="64.0" cy="44.7" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="100.0" cy="46.9" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="136.0" cy="50.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="172.0" cy="65.0" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="208.0" cy="136.7" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="136.0" y="228.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Round</text>
+<text x="244.0" y="24.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Median distance from truth</text>
+<line x1="274.0" y1="196.0" x2="454.0" y2="196.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="268.0" y="200.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<line x1="274.0" y1="144.0" x2="454.0" y2="144.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="268.0" y="148.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">4</text>
+<line x1="274.0" y1="92.0" x2="454.0" y2="92.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="268.0" y="96.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">8</text>
+<line x1="274.0" y1="40.0" x2="454.0" y2="40.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="268.0" y="44.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">12</text>
+<text x="292.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1</text>
+<text x="328.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2</text>
+<text x="364.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3</text>
+<text x="400.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">4</text>
+<text x="436.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5</text>
+<path d="M292.0,59.6 L328.0,159.6 L364.0,174.9 L400.0,181.9 L436.0,191.8" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="292.0" cy="59.6" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="328.0" cy="159.6" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="364.0" cy="174.9" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="400.0" cy="181.9" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="436.0" cy="191.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="364.0" y="228.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Round</text>
+<text x="472.0" y="24.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Trades that round (all 10 markets)</text>
+<line x1="502.0" y1="196.0" x2="682.0" y2="196.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="496.0" y="200.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<line x1="502.0" y1="118.0" x2="682.0" y2="118.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="496.0" y="122.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">8</text>
+<line x1="502.0" y1="40.0" x2="682.0" y2="40.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="496.0" y="44.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">16</text>
+<text x="520.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1</text>
+<path d="M510.0,196.0 V44.0 Q510.0,40.0 514.0,40.0 H526.0 Q530.0,40.0 530.0,44.0 V196.0 Z" fill="#2a78d6"/>
+<text x="520.0" y="35.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">16</text>
+<text x="556.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2</text>
+<path d="M546.0,196.0 V151.2 Q546.0,147.2 550.0,147.2 H562.0 Q566.0,147.2 566.0,151.2 V196.0 Z" fill="#2a78d6"/>
+<text x="556.0" y="142.2" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5</text>
+<text x="592.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3</text>
+<path d="M582.0,196.0 V161.0 Q582.0,157.0 586.0,157.0 H598.0 Q602.0,157.0 602.0,161.0 V196.0 Z" fill="#2a78d6"/>
+<text x="592.0" y="152.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">4</text>
+<text x="628.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">4</text>
+<text x="628.0" y="191.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<text x="664.0" y="211.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5</text>
+<text x="664.0" y="191.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<text x="592.0" y="228.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Round</text>
+</svg>

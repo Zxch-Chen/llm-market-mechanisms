@@ -1,0 +1,141 @@
+{"type": "offer", "id": "O1", "agent": "B0", "side": "buy", "good": "ticket", "price": 204.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O2", "agent": "B1", "side": "buy", "good": "bike", "price": 100.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O3", "agent": "B1", "side": "buy", "good": "ticket", "price": 55.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O4", "agent": "B2", "side": "buy", "good": "laptop", "price": 231.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O5", "agent": "B3", "side": "buy", "good": "laptop", "price": 506.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O6", "agent": "B4", "side": "buy", "good": "laptop", "price": 517.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O7", "agent": "B5", "side": "buy", "good": "ticket", "price": 95.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O8", "agent": "B6", "side": "buy", "good": "laptop", "price": 500.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O9", "agent": "B6", "side": "buy", "good": "bike", "price": 70.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O10", "agent": "B7", "side": "buy", "good": "laptop", "price": 197.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O11", "agent": "B8", "side": "buy", "good": "bike", "price": 220.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O12", "agent": "B8", "side": "buy", "good": "ticket", "price": 53.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O13", "agent": "B9", "side": "buy", "good": "ticket", "price": 205.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O14", "agent": "B10", "side": "buy", "good": "laptop", "price": 700.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O15", "agent": "B11", "side": "buy", "good": "bike", "price": 75.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O16", "agent": "S0", "side": "sell", "good": "bike", "price": 300.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O17", "agent": "S1", "side": "sell", "good": "laptop", "price": 581.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O18", "agent": "S2", "side": "sell", "good": "ticket", "price": 114.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O19", "agent": "S3", "side": "sell", "good": "bike", "price": 260.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O20", "agent": "S4", "side": "sell", "good": "laptop", "price": 666.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O21", "agent": "S5", "side": "sell", "good": "ticket", "price": 250.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O22", "agent": "S6", "side": "sell", "good": "bike", "price": 207.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O23", "agent": "S7", "side": "sell", "good": "laptop", "price": 539.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O24", "agent": "S8", "side": "sell", "good": "ticket", "price": 134.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O25", "agent": "S9", "side": "sell", "good": "bike", "price": 221.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O26", "agent": "S10", "side": "sell", "good": "laptop", "price": 200.0, "round": 1, "status": "open"}
+{"type": "offer", "id": "O27", "agent": "S11", "side": "sell", "good": "ticket", "price": 100.0, "round": 1, "status": "open"}
+{"type": "message", "round": 1, "from": "B6", "to": "ALL", "text": "Looking for laptop under $527 and bike under $78. Let me know if you have good deals!"}
+{"type": "message", "round": 1, "from": "B10", "to": "ALL", "text": "Looking for refurbished laptop under $736, interested in fair deals."}
+{"type": "message", "round": 1, "from": "S0", "to": "ALL", "text": "S0 selling bike at $300. Serious inquiries only."}
+{"type": "message", "round": 1, "from": "S1", "to": "ALL", "text": "S1: Selling laptop at $581. Great value!"}
+{"type": "message", "round": 1, "from": "S2", "to": "ALL", "text": "S2 is selling a concert ticket for $114. Interested buyers, reach out!"}
+{"type": "message", "round": 1, "from": "S5", "to": "ALL", "text": "Ticket available for $250. DM me if interested!"}
+{"type": "message", "round": 1, "from": "S6", "to": "ALL", "text": "S6 selling bike at $207 - interested buyers please contact me!"}
+{"type": "message", "round": 1, "from": "S8", "to": "ALL", "text": "S8 is selling a concert ticket at $134. Interested buyers, reach out!"}
+{"type": "message", "round": 1, "from": "S9", "to": "ALL", "text": "Just listed a used road bike for $221. Your move!"}
+{"type": "message", "round": 1, "from": "S10", "to": "ALL", "text": "S10 has a refurbished laptop available for sale at $200. Interested buyers, let me know!"}
+{"type": "message", "round": 1, "from": "S11", "to": "ALL", "text": "Selling a ticket for $100. Arrives tonight on my work trip. Ask if interested!"}
+{"type": "cancel", "round": 2, "agent": "B0", "offer": "O1"}
+{"type": "cancel", "round": 2, "agent": "B2", "offer": "O4"}
+{"type": "cancel", "round": 2, "agent": "B4", "offer": "O6"}
+{"type": "cancel", "round": 2, "agent": "B5", "offer": "O7"}
+{"type": "cancel", "round": 2, "agent": "B6", "offer": "O9"}
+{"type": "cancel", "round": 2, "agent": "B8", "offer": "O11"}
+{"type": "cancel", "round": 2, "agent": "B10", "offer": "O14"}
+{"type": "cancel", "round": 2, "agent": "S0", "offer": "O16"}
+{"type": "cancel", "round": 2, "agent": "S4", "offer": "O20"}
+{"type": "cancel", "round": 2, "agent": "S5", "offer": "O21"}
+{"type": "cancel", "round": 2, "agent": "S6", "offer": "O22"}
+{"type": "cancel", "round": 2, "agent": "S7", "offer": "O23"}
+{"type": "cancel", "round": 2, "agent": "S10", "offer": "O26"}
+{"type": "accept_failed", "round": 2, "agent": "S10", "offer": "O14", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "S1", "offer": "O14", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B3", "offer": "O26", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B10", "offer": "O26", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B6", "offer": "O26", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "S7", "offer": "O14", "reason": "offer not open"}
+{"type": "trade", "good": "ticket", "buyer": "B9", "seller": "S11", "price": 205.0, "round": 2, "offer": "O13", "accepted_by": "S11"}
+{"type": "accept_failed", "round": 2, "agent": "S4", "offer": "O14", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B5", "offer": "O27", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B4", "offer": "O26", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "S2", "offer": "O13", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B2", "offer": "O26", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "S6", "offer": "O11", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B0", "offer": "O27", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "S8", "offer": "O13", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B9", "offer": "O27", "reason": "offer not open"}
+{"type": "accept_failed", "round": 2, "agent": "B8", "offer": "O22", "reason": "offer not open"}
+{"type": "offer", "id": "O28", "agent": "B6", "side": "buy", "good": "bike", "price": 78.0, "round": 2, "status": "open"}
+{"type": "offer", "id": "O29", "agent": "B8", "side": "buy", "good": "ticket", "price": 53.0, "round": 2, "status": "open"}
+{"type": "offer", "id": "O30", "agent": "S0", "side": "sell", "good": "bike", "price": 297.0, "round": 2, "status": "open"}
+{"type": "offer", "id": "O31", "agent": "S5", "side": "sell", "good": "ticket", "price": 213.0, "round": 2, "status": "open"}
+{"type": "message", "round": 2, "from": "B1", "to": "S2", "text": "Interested in the ticket. Would you consider $60?"}
+{"type": "message", "round": 2, "from": "B1", "to": "S11", "text": "Selling ticket at $100. Any chance to lower the price?"}
+{"type": "message", "round": 2, "from": "B3", "to": "S10", "text": "Thanks for the great deal! Lucas is going to take the refurbished laptop at $200."}
+{"type": "message", "round": 2, "from": "B6", "to": "ALL", "text": "Found great laptop deal at $200, focusing on bike now."}
+{"type": "message", "round": 2, "from": "B7", "to": "S10", "text": "S10, I'm interested in your refurbished laptop. Would you consider selling it for $197?"}
+{"type": "message", "round": 2, "from": "B7", "to": "ALL", "text": "Looking for a refurbished laptop under $197. Any offers?"}
+{"type": "message", "round": 2, "from": "B8", "to": "S11", "text": "Can you sell the ticket for $53?"}
+{"type": "message", "round": 2, "from": "B11", "to": "S0", "text": "Hi S0, I'm interested in buying your bike. I can offer $75 if you can match my budget."}
+{"type": "message", "round": 2, "from": "B11", "to": "S3", "text": "Hi S3, your bike listing caught my eye. I can pay $75 if you can match."}
+{"type": "message", "round": 2, "from": "B11", "to": "S6", "text": "Hi S6, I'm looking for a bike within $75. Can you drop price to match my budget?"}
+{"type": "message", "round": 2, "from": "B11", "to": "S9", "text": "Hi S9, I saw your bike offer. I can pay $75 if you can meet my budget."}
+{"type": "message", "round": 2, "from": "S0", "to": "ALL", "text": "S0 adjusting bike sell price to $297 - best offer accepted!"}
+{"type": "message", "round": 2, "from": "S3", "to": "B8", "text": "Hi B8, I see your offer of $220. I\u2019m asking $260 for the bike. Would you be willing to meet that price?"}
+{"type": "message", "round": 2, "from": "S4", "to": "ALL", "text": "S4: Laptop available at $666. Highest offer received is $700 from B10. Let's finalize the deal."}
+{"type": "message", "round": 2, "from": "S5", "to": "B0", "text": "Looking to sell my concert ticket for $213. Let me know if you're interested!"}
+{"type": "message", "round": 2, "from": "S5", "to": "B9", "text": "Selling a ticket for $213\u2014reach out if you want it!"}
+{"type": "message", "round": 2, "from": "S5", "to": "ALL", "text": "Ticket available for $213. Contact me for a quick sale!"}
+{"type": "message", "round": 2, "from": "S6", "to": "ALL", "text": "S6 is selling bike at $207. Highest bid so far is $220. Let's make a deal!"}
+{"type": "message", "round": 2, "from": "S9", "to": "B8", "text": "I have a bike listed for $221. Your $220 offer is very close. Would you be willing to meet at $221?"}
+{"type": "message", "round": 2, "from": "S9", "to": "ALL", "text": "Bike available for sale at $221. Serious inquiries only."}
+{"type": "message", "round": 2, "from": "S10", "to": "ALL", "text": "S10: Accepting B10's $700 offer for the laptop! Best deal available."}
+{"type": "cancel", "round": 3, "agent": "B1", "offer": "O2"}
+{"type": "cancel", "round": 3, "agent": "B1", "offer": "O3"}
+{"type": "cancel", "round": 3, "agent": "B6", "offer": "O8"}
+{"type": "cancel", "round": 3, "agent": "B8", "offer": "O29"}
+{"type": "cancel", "round": 3, "agent": "S8", "offer": "O24"}
+{"type": "trade", "good": "laptop", "buyer": "B10", "seller": "S1", "price": 581.0, "round": 3, "offer": "O17", "accepted_by": "B10"}
+{"type": "trade", "good": "laptop", "buyer": "B7", "seller": "S10", "price": 197.0, "round": 3, "offer": "O10", "accepted_by": "S10"}
+{"type": "accept_failed", "round": 3, "agent": "B4", "offer": "O17", "reason": "offer not open"}
+{"type": "accept_failed", "round": 3, "agent": "B6", "offer": "O28", "reason": "own offer"}
+{"type": "accept_failed", "round": 3, "agent": "B8", "offer": "O29", "reason": "offer not open"}
+{"type": "trade", "good": "ticket", "buyer": "B0", "seller": "S2", "price": 114.0, "round": 3, "offer": "O18", "accepted_by": "B0"}
+{"type": "offer", "id": "O32", "agent": "B2", "side": "buy", "good": "laptop", "price": 231.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O33", "agent": "B4", "side": "buy", "good": "laptop", "price": 517.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O34", "agent": "B5", "side": "buy", "good": "ticket", "price": 107.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O35", "agent": "B8", "side": "buy", "good": "bike", "price": 220.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O36", "agent": "S4", "side": "sell", "good": "laptop", "price": 666.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O37", "agent": "S6", "side": "sell", "good": "bike", "price": 207.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O38", "agent": "S7", "side": "sell", "good": "laptop", "price": 539.0, "round": 3, "status": "open"}
+{"type": "offer", "id": "O39", "agent": "S8", "side": "sell", "good": "ticket", "price": 150.0, "round": 3, "status": "open"}
+{"type": "message", "round": 3, "from": "B1", "to": "ALL", "text": "All right, I\u2019m not looking for a bike or ticket right now \u2013 my budget and needs have been updated."}
+{"type": "message", "round": 3, "from": "B2", "to": "S10", "text": "Do you have a refurbished laptop available under $231?"}
+{"type": "message", "round": 3, "from": "B3", "to": "S10", "text": "Hi S10, I saw your post about a refurbished laptop at $200. Does that listing still exist? I'm willing to offer up to $506 and would like to finalize a deal if possible."}
+{"type": "message", "round": 3, "from": "B4", "to": "ALL", "text": "Found a good deal on a refurbished laptop at $517, which is within Elena's budget."}
+{"type": "message", "round": 3, "from": "B5", "to": "S2", "text": "Hi S2, I\u2019m looking to buy a concert ticket. Would you consider selling for $107? Let me know!"}
+{"type": "message", "round": 3, "from": "B5", "to": "S8", "text": "Hello S8, I\u2019m interested in your ticket. Is $107 acceptable for the sale?"}
+{"type": "message", "round": 3, "from": "B7", "to": "S1", "text": "Hi S1, I'm interested in your laptop but my budget is $197. Can we negotiate?"}
+{"type": "message", "round": 3, "from": "B8", "to": "S9", "text": "Can you lower the bike price to $220?"}
+{"type": "message", "round": 3, "from": "B11", "to": "S6", "text": "Hello S6, I need a used road bike for commuting. Would you be willing to sell one for $75?"}
+{"type": "message", "round": 3, "from": "S0", "to": "B11", "text": "I can't accept offers below $297. Let me know if you can meet my minimum."}
+{"type": "message", "round": 3, "from": "S1", "to": "B3", "text": "Hi B3, I'm open to discussing the laptop. If $550 works for you, let me know!"}
+{"type": "message", "round": 3, "from": "S2", "to": "B1", "text": "Would you be willing to offer at least $114 for the ticket?"}
+{"type": "message", "round": 3, "from": "S3", "to": "B1", "text": "Thanks for expressing interest. The bike is listed at $260. Would you be willing to match that price?"}
+{"type": "message", "round": 3, "from": "S4", "to": "ALL", "text": "S4: Selling refurbished laptop at $666. Best price available!"}
+{"type": "message", "round": 3, "from": "S5", "to": "B0", "text": "Hi B0, I have a concert ticket for $213. Let me know if you\u2019re interested!"}
+{"type": "message", "round": 3, "from": "S5", "to": "B5", "text": "Hi B5, I\u2019m selling a concert ticket for $213. Reach out if you want it!"}
+{"type": "message", "round": 3, "from": "S7", "to": "ALL", "text": "Refurbished laptop available for sale at $539. Message me if you're interested!"}
+{"type": "message", "round": 3, "from": "S7", "to": "B3", "text": "Hi B3, I'm offering the laptop at $539. Let me know if that works for you."}
+{"type": "message", "round": 3, "from": "S8", "to": "ALL", "text": "Looking for a higher price for the ticket. Open to offers above $134!"}
+{"type": "message", "round": 3, "from": "S9", "to": "ALL", "text": "S9: Looking for buyers for my bike at $221, prime condition!"}
+{"type": "message", "round": 3, "from": "S10", "to": "ALL", "text": "S10 is selling the refurbished laptop for $197. Let's make this deal happen!"}
+{"type": "cancel", "round": 4, "agent": "B4", "offer": "O33"}
+{"type": "cancel", "round": 4, "agent": "B6", "offer": "O28"}
+{"type": "cancel", "round": 4, "agent": "B8", "offer": "O35"}
+{"type": "cancel", "round": 4, "agent": "S4", "offer": "O36"}
+{"type": "cancel", "round": 4, "agent": "S6", "offer": "O37"}
+{"type": "cancel", "round": 4, "agent": "S8", "offer": "O39"}
+{"type": "accept_failed", "round": 4, "agent": "B6", "offer": "O28", "reason": "offer not open"}
+{"type": "accept_failed", "round": 4, "agent": "S6", "offer": "O35", "reason": "offer not open"}

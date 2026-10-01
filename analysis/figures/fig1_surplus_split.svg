@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 330" width="680" height="330">
+<rect width="680" height="330" fill="#fcfcfb"/>
+<rect x="56" y="13" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="71.0" y="22.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Buyers</text>
+<rect x="132.2" y="13" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="147.2" y="22.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Sellers</text>
+<line x1="56.0" y1="262.0" x2="664.0" y2="262.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="266.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<line x1="56.0" y1="225.7" x2="664.0" y2="225.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="229.7" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">15</text>
+<line x1="56.0" y1="189.3" x2="664.0" y2="189.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="193.3" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">30</text>
+<line x1="56.0" y1="153.0" x2="664.0" y2="153.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="157.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">45</text>
+<line x1="56.0" y1="116.7" x2="664.0" y2="116.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="120.7" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">60</text>
+<line x1="56.0" y1="80.3" x2="664.0" y2="80.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="84.3" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">75</text>
+<line x1="56.0" y1="44.0" x2="664.0" y2="44.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="48.0" font-size="11" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">90</text>
+<text transform="rotate(-90 14 153.0)" x="14.0" y="153.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Mean surplus per market</text>
+<path d="M107.0,262.0 V137.3 Q107.0,133.3 111.0,133.3 H127.0 Q131.0,133.3 131.0,137.3 V262.0 Z" fill="#2a78d6"/>
+<line x1="119.0" y1="172.8" x2="119.0" y2="93.8" stroke="#52514e" stroke-width="1"/>
+<line x1="115.0" y1="93.8" x2="123.0" y2="93.8" stroke="#52514e" stroke-width="1"/>
+<line x1="115.0" y1="172.8" x2="123.0" y2="172.8" stroke="#52514e" stroke-width="1"/>
+<text x="119.0" y="88.8" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">53</text>
+<path d="M133.0,262.0 V137.4 Q133.0,133.4 137.0,133.4 H153.0 Q157.0,133.4 157.0,137.4 V262.0 Z" fill="#eb6834"/>
+<line x1="145.0" y1="177.8" x2="145.0" y2="89.0" stroke="#52514e" stroke-width="1"/>
+<line x1="141.0" y1="89.0" x2="149.0" y2="89.0" stroke="#52514e" stroke-width="1"/>
+<line x1="141.0" y1="177.8" x2="149.0" y2="177.8" stroke="#52514e" stroke-width="1"/>
+<text x="145.0" y="84.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">53</text>
+<text x="132.0" y="280.0" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Planner</text>
+<text x="132.0" y="296.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">honest prompt</text>
+<text x="132.0" y="314.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">efficiency 1.000</text>
+<path d="M259.0,262.0 V142.0 Q259.0,138.0 263.0,138.0 H279.0 Q283.0,138.0 283.0,142.0 V262.0 Z" fill="#2a78d6"/>
+<line x1="271.0" y1="176.8" x2="271.0" y2="99.1" stroke="#52514e" stroke-width="1"/>
+<line x1="267.0" y1="99.1" x2="275.0" y2="99.1" stroke="#52514e" stroke-width="1"/>
+<line x1="267.0" y1="176.8" x2="275.0" y2="176.8" stroke="#52514e" stroke-width="1"/>
+<text x="271.0" y="94.1" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">51</text>
+<path d="M285.0,262.0 V136.9 Q285.0,132.9 289.0,132.9 H305.0 Q309.0,132.9 309.0,136.9 V262.0 Z" fill="#eb6834"/>
+<line x1="297.0" y1="169.8" x2="297.0" y2="96.0" stroke="#52514e" stroke-width="1"/>
+<line x1="293.0" y1="96.0" x2="301.0" y2="96.0" stroke="#52514e" stroke-width="1"/>
+<line x1="293.0" y1="169.8" x2="301.0" y2="169.8" stroke="#52514e" stroke-width="1"/>
+<text x="297.0" y="91.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">53</text>
+<text x="284.0" y="280.0" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Planner</text>
+<text x="284.0" y="296.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">profit prompt</text>
+<text x="284.0" y="314.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">efficiency 0.986</text>
+<path d="M411.0,262.0 V137.3 Q411.0,133.3 415.0,133.3 H431.0 Q435.0,133.3 435.0,137.3 V262.0 Z" fill="#2a78d6"/>
+<line x1="423.0" y1="169.5" x2="423.0" y2="97.1" stroke="#52514e" stroke-width="1"/>
+<line x1="419.0" y1="97.1" x2="427.0" y2="97.1" stroke="#52514e" stroke-width="1"/>
+<line x1="419.0" y1="169.5" x2="427.0" y2="169.5" stroke="#52514e" stroke-width="1"/>
+<text x="423.0" y="92.1" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">53</text>
+<path d="M437.0,262.0 V137.3 Q437.0,133.3 441.0,133.3 H457.0 Q461.0,133.3 461.0,137.3 V262.0 Z" fill="#eb6834"/>
+<line x1="449.0" y1="169.5" x2="449.0" y2="97.1" stroke="#52514e" stroke-width="1"/>
+<line x1="445.0" y1="97.1" x2="453.0" y2="97.1" stroke="#52514e" stroke-width="1"/>
+<line x1="445.0" y1="169.5" x2="453.0" y2="169.5" stroke="#52514e" stroke-width="1"/>
+<text x="449.0" y="92.1" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">53</text>
+<text x="436.0" y="280.0" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Double auction</text>
+<text x="436.0" y="296.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">honest prompt</text>
+<text x="436.0" y="314.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">efficiency 1.000</text>
+<path d="M563.0,262.0 V157.3 Q563.0,153.3 567.0,153.3 H583.0 Q587.0,153.3 587.0,157.3 V262.0 Z" fill="#2a78d6"/>
+<line x1="575.0" y1="188.0" x2="575.0" y2="118.7" stroke="#52514e" stroke-width="1"/>
+<line x1="571.0" y1="118.7" x2="579.0" y2="118.7" stroke="#52514e" stroke-width="1"/>
+<line x1="571.0" y1="188.0" x2="579.0" y2="188.0" stroke="#52514e" stroke-width="1"/>
+<text x="575.0" y="113.7" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">45</text>
+<path d="M589.0,262.0 V118.4 Q589.0,114.4 593.0,114.4 H609.0 Q613.0,114.4 613.0,118.4 V262.0 Z" fill="#eb6834"/>
+<line x1="601.0" y1="166.7" x2="601.0" y2="62.1" stroke="#52514e" stroke-width="1"/>
+<line x1="597.0" y1="62.1" x2="605.0" y2="62.1" stroke="#52514e" stroke-width="1"/>
+<line x1="597.0" y1="166.7" x2="605.0" y2="166.7" stroke="#52514e" stroke-width="1"/>
+<text x="601.0" y="57.1" font-size="11" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">61</text>
+<text x="588.0" y="280.0" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Double auction</text>
+<text x="588.0" y="296.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">profit prompt</text>
+<text x="588.0" y="314.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">efficiency 0.996</text>
+</svg>
