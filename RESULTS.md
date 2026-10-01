@@ -4,7 +4,44 @@
 
 We ran two experiments:
 - **v1:** a small, abstract market with Claude Opus 5.5.
-- **v2:** a realistic economy where every agent works for a named person and can chat. It was run with two small open models (Qwen3-8B and GPT-OSS-20B), then on one market with Claude Opus 5.5 for comparison.
+- **v2:** a realistic economy where every agent works for a named person and can chat. It was run with two small open models (Qwen3-8B and GPT-OSS-20B) and two middle-tier models (GPT-OSS-120B and Qwen3.8-27B), and on one market with Claude Opus 5.5.
+
+## The story
+
+**An AI trading agent has three separate jobs:**
+1. Look after its own client: never pay more than the client would.
+2. Find good prices in the market.
+3. Be honest with everyone else.
+
+Our experiments suggest these three come apart. They improve differently as models get stronger, and instructions control only one of them, honesty, and only for some models.
+
+1. **In a simple market, a strong model's honesty is a switch set by its instructions** (v1). Told to be honest, Opus never misreported (0 of 408). Told to make money, it shaded 88% of the time while saying plainly that honesty was best for everyone. The market barely noticed (98.6–99.6% efficiency), because the clearing rules did most of the work.
+
+2. **In a realistic market, the bigger danger with weak agents is hurting their own client, not lying** (v2, small models). Once the agents had to negotiate on their own:
+   - they gave away their client's limits;
+   - they took the first workable deal;
+   - at the deadline some broke their client's limits, reasoning that "any deal beats none."
+
+   Free negotiation lost 22–33 more points of efficiency than the planner. That's Hayek's argument turned around: a market only aggregates what people know if its traders actually look for prices. These traders didn't, so the central planner won.
+
+3. **Stronger models fix these failures one at a time, and honesty doesn't come with the improvements** (middle tier and Opus). GPT-OSS-120B and Qwen3.8-27B stopped hurting their clients. Only Opus also looked for prices, by getting quotes from several sellers, and so made the decentralized market work (99% efficiency). Honesty didn't follow capability:
+   - Qwen3.8-27B was very competent, but misreported 31% of the time even when told to be honest. Its thinking never mentions the rule.
+   - GPT-OSS-20B argued its way around the rule.
+   - Opus followed the rule exactly, but shaded half the time when given no instruction.
+
+4. **One thread runs through all of it: the objectives we give agents are incomplete.**
+   - "Make money" didn't say how much the market's welfare matters.
+   - "She'll pay at most $212" didn't say that no deal is better than paying $213.
+   - "Be honest, and paying less is better" didn't say which one wins.
+
+   In each case the model filled the gap itself, and different models filled it differently. Strong models assumed the right outside option; weak ones didn't.
+
+**What this means for an economy run by agents:**
+- **Consumer-side agents need hard guardrails** (limit-order-style caps the platform enforces) and objectives that spell out the no-deal option. Their main risk is mistakes with the user's money.
+- **Business-side agents can't be assumed honest just because they're capable.**
+- **Market designers can make up for weak agents** with central matching. Decentralized markets only work once the agents themselves are good at finding prices.
+
+**How sure are we?** v1 has 10 markets per condition, and v2's small-model run has 10 too. The middle tier has 2 per model and Opus in v2 has 1. Treat the scaling story as a direction, not a measured effect. Details and caveats are throughout below and in [`DISCUSSION.md`](DISCUSSION.md).
 
 **How to read the numbers:**
 - **Efficiency** is the share of the best possible gains from trade that actually happened.

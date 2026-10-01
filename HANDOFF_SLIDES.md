@@ -187,29 +187,49 @@ Keep the same system for new slides.
 
 ---
 
-## 5. Suggested deck changes
+## 4b. Middle-tier models and the overall narrative (added later)
 
-Keep the v1 arc (slides 1–14) mostly as is; it's the finished, defensible part. Then add a short v2 section before the safety slide:
+**Middle tier** (seeds 0–1, 4,096-token thinking cap; Opus is seed 0 via `claude -p`). Folders: `outputs/v2/tinker-gptoss120b/` and `outputs/v2/tinker-qwen38-27b/`. Write-up: `DISCUSSION.md` section 7.
 
-1. **"We scaled it up"**: a v1 → v2 comparison (goods, agents, roleplay, chat, models). Put a quote of one persona prompt in the notes.
-2. **"Free negotiation loses welfare"**: the planner-vs-chat efficiency table above. Use the laptop mismatch as the example.
-3. **"Agents broke their own client's limits"**: 37 of 258 chat trades. Lead with the $215-for-a-$53-ticket example, where the thinking says no and the action says yes.
-4. **"Honesty depends on the model"**: Qwen vs GPT-OSS misreport rates by framing, plus the "beyond min, so okay" quote.
-5. *(optional)* **"Weaker models misread the market"**: role confusion and the "This is simulation" quote.
+| | Qwen3-8B + GPT-OSS-20B | GPT-OSS-120B | Qwen3.8-27B | Opus 5.5 |
+|---|---|---|---|---|
+| Chat efficiency | 69% | 92% | 96% | 99% |
+| Chat trades that broke a client's limit | 7 of 46 | 1 of 44 | 0 of 41 | 0 of 25 |
+| Opening offers at the client's exact limit | 55% | 18% | 0% | 0% |
+| Wrong-pair trades in round 2 | 38% | 47% | 35% | 0% |
+| Planner misreports: neutral / honest / aggressive | 11/7/35% | 4/4/13% | 58/31/51% | 50/0/93% |
 
-Then update:
-- **Safety:** add that weaker agents also fail their own principals, and that honesty rules get read narrowly.
-- **Limits:**
-  - 10 markets per condition, and wide intervals for chat.
-  - 11% of calls hit the token cap and were retried.
-  - The false-claim detector is a heuristic.
-  - Agents can tell it's a simulation.
-  - Both models share a market, so their effects on each other aren't separated.
-- **Conclusion.**
+**The narrative:** use the "The story" section at the top of `RESULTS.md` as the spine of the deck. An AI trading agent has three separate jobs (look after its client, find good prices, be honest with others), and they come apart:
+1. v1: honesty is a switch set by the instructions.
+2. v2 with weak models: the danger is hurting their own client, so the planner beats the market.
+3. As models get stronger, the client-harming failures get fixed one at a time, but honesty doesn't follow.
+4. Throughout: incomplete objectives get filled in differently by different models.
 
-Simple shapes are fine for v2 numbers, like the efficiency bars on slide 12 of `build_deck.js`. If you want real v2 figures, write a small script that reads `outputs/v2/tinker/summary.jsonl` and the per-run `events.jsonl` and draws them, rather than hand-typing numbers.
+**Instructor feedback to apply:**
+- Separate consumer-side and business-side agents.
+- State the uncertainty: give n, the intervals, and an "exploratory" label for the 1–2 seed results.
+- Tighten the deck and put the headline first.
 
----
+**The token-cap caveat:** of the 37 chat trades that broke a client's limit in the small-model run, 21 came right after the agent's reasoning was cut off by our 2,048-token cap. Report it as "14% at most, 6% excluding those."
+
+## 5. Suggested deck structure (headline first)
+
+About 12 main slides. Put details in the speaker notes and backup slides.
+
+1. **Title.**
+2. **The headline:** "AI trading agents have three jobs: protect the client, find prices, be honest. They come apart." Use the three-jobs graphic with one number each (limit violations 7 of 46 → 0 of 41 on the same seeds, chat efficiency 69% → 99%, and 31% misreports under the honest framing for Qwen3.8).
+3. **Why it matters:** the agentic economy, split into consumer-side and business-side agents.
+4. **Setup in one slide:** v1 (simple) → v2 (realistic: three goods, a named client, chat), and the model ladder.
+5. **Finding 1, v1:** honesty is a switch set by the prompt (0% vs 88%), and the agents knew what it cost.
+6. **Finding 2, v2 with weak models:** they hurt their own client, and the planner beats chat. Use the $215-for-a-$53-ticket quote.
+7. **Why they fail:** they bid their real limit at the start, take the first deal, and fold at the deadline (with the token-cap caveat).
+8. **Finding 3, the model ladder:** the tier table above, with client protection fixed first and price discovery only at Opus.
+9. **Finding 4, competence isn't honesty:** Qwen3.8 forgets the rule, GPT-OSS-20B argues around it, Opus follows it.
+10. **The common thread, incomplete objectives:** "at most $212" doesn't say no deal is better, and "honest" vs "pay less" doesn't say which wins.
+11. **What it means:** guardrails for consumer-side agents, no assumption of honesty for business-side agents, and central matching for markets of weak agents.
+12. **Limits and next steps,** stating the uncertainty plainly.
+
+**Backup slides:** the mechanism details (midpoint and call markets, `DISCUSSION.md` sections 1–2), v1 figures, the seed-7 tie, and the checks on the code.
 
 ## 6. Facts to get right (common mistakes)
 
