@@ -15,7 +15,9 @@ CS2881r in-class experiment. AI agents act as buyers and sellers with private va
 | `report/LLM_Markets_Presentation.pptx` | The slide deck. Rebuild it with `report/deck/build_deck.js`. |
 | `v2/` | **v2**, the realistic economy. 24 agents and 3 goods (bikes, laptops, tickets). Each agent works for a named person, in a central planner or a 6-round chat marketplace with messages, under neutral, honest or aggressive framings. Full reasoning is logged. See `v2/README.md`. |
 | `outputs/v2/tinker/` | v2 with Qwen3-8B + GPT-OSS-20B: 60 runs (10 markets × 6 conditions). Tables are in `results.md`; every call's prompt and thinking is in `runs/*/calls.jsonl`. |
+| `outputs/v2/tinker-gptoss120b/`, `outputs/v2/tinker-qwen38-27b/` | v2 with middle-tier models, seeds 0–1 (12 runs each). |
 | `outputs/v2/claude-cli/` | v2 with Claude Opus 5.5 via `claude -p`, on seed 0 only (6 runs). Exploratory: the agents also saw Claude Code's environment context, and no reasoning text is returned. |
+| `DISCUSSION.md` | Mechanism design questions, the instructor's feedback, why agents fail, objectives and alignment, and middle-tier results. |
 | `NOTES_stage3.md`, `HANDOFF_SLIDES.md` | Corrections to earlier notes; the full results summary and slide brief. |
 
 ## Headline results

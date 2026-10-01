@@ -1,0 +1,52 @@
+[  0.1 min] access ok for openai/gpt-oss-120b; launching 12 runs at once (concurrency 64, call timeout 180s, deadline 60 min)
+[  0.1 min] negotiation_neutral_seed0: round 1: 24 active, 0 trades so far
+[  0.1 min] negotiation_honest_seed0: round 1: 24 active, 0 trades so far
+[  0.1 min] negotiation_aggressive_seed0: round 1: 24 active, 0 trades so far
+[  0.1 min] negotiation_neutral_seed1: round 1: 24 active, 0 trades so far
+[  0.1 min] negotiation_honest_seed1: round 1: 24 active, 0 trades so far
+[  0.1 min] negotiation_aggressive_seed1: round 1: 24 active, 0 trades so far
+  model_input = self.renderer.build_generation_prompt(messages)
+[  0.2 min] negotiation_neutral_seed0: round 2: 24 active, 0 trades so far
+[  0.2 min] negotiation_honest_seed0: round 2: 24 active, 0 trades so far
+[  0.2 min] negotiation_aggressive_seed0: round 2: 24 active, 0 trades so far
+[  0.3 min] negotiation_neutral_seed1: round 2: 24 active, 0 trades so far
+[  0.3 min] negotiation_honest_seed1: round 2: 24 active, 0 trades so far
+[  0.3 min] negotiation_aggressive_seed1: round 2: 24 active, 0 trades so far
+[  0.3 min] done planner_honest_seed0           E=1.000 trades=8/8 timeouts=0 cost=$0.018 (total $0.02)
+[  0.3 min] done planner_neutral_seed0          E=1.000 trades=8/8 timeouts=0 cost=$0.019 (total $0.04)
+[  0.4 min] done planner_aggressive_seed0       E=1.000 trades=8/8 timeouts=0 cost=$0.020 (total $0.06)
+[  0.4 min] negotiation_neutral_seed0: round 3: 14 active, 6 trades so far
+[  0.4 min] done planner_neutral_seed1          E=1.000 trades=4/4 timeouts=0 cost=$0.019 (total $0.08)
+[  0.4 min] done planner_aggressive_seed1       E=0.975 trades=4/4 timeouts=0 cost=$0.019 (total $0.09)
+[  0.4 min] negotiation_honest_seed0: round 3: 16 active, 5 trades so far
+[  0.5 min] negotiation_aggressive_seed0: round 3: 15 active, 5 trades so far
+[  0.5 min] done planner_honest_seed1           E=1.000 trades=4/4 timeouts=0 cost=$0.017 (total $0.11)
+[  0.5 min] negotiation_neutral_seed1: round 3: 16 active, 5 trades so far
+[  0.5 min] negotiation_honest_seed1: round 3: 15 active, 5 trades so far
+[  0.6 min] negotiation_neutral_seed0: round 4: 10 active, 8 trades so far
+[  0.6 min] negotiation_aggressive_seed1: round 3: 17 active, 4 trades so far
+[  0.6 min] negotiation_honest_seed0: round 4: 13 active, 7 trades so far
+[  0.6 min] negotiation_aggressive_seed0: round 4: 10 active, 8 trades so far
+[  0.6 min] negotiation_honest_seed1: round 4: 13 active, 6 trades so far
+[  0.6 min] negotiation_neutral_seed1: round 4: 14 active, 6 trades so far
+[  0.6 min] negotiation_neutral_seed0: round 5: 8 active, 9 trades so far
+[  0.6 min] negotiation_honest_seed0: round 5: 11 active, 8 trades so far
+[  0.6 min] negotiation_honest_seed1: round 5: 13 active, 6 trades so far
+[  0.7 min] negotiation_neutral_seed1: round 5: 14 active, 6 trades so far
+[  0.7 min] negotiation_aggressive_seed0: round 5: 8 active, 9 trades so far
+[  0.7 min] negotiation_aggressive_seed1: round 4: 16 active, 5 trades so far
+[  0.7 min] negotiation_honest_seed0: round 6: 11 active, 8 trades so far
+[  0.7 min] negotiation_neutral_seed0: round 6: 8 active, 9 trades so far
+[  0.7 min] negotiation_honest_seed1: round 6: 13 active, 6 trades so far
+[  0.7 min] negotiation_neutral_seed1: round 6: 14 active, 6 trades so far
+[  0.7 min] negotiation_aggressive_seed0: round 6: 8 active, 9 trades so far
+[  0.7 min] negotiation_aggressive_seed1: round 5: 16 active, 5 trades so far
+[  0.8 min] done negotiation_honest_seed0       E=1.000 trades=8/8 timeouts=0 cost=$0.079 (total $0.19)
+[  0.8 min] negotiation_aggressive_seed1: round 6: 16 active, 5 trades so far
+[  0.8 min] done negotiation_neutral_seed0      E=0.958 trades=9/8 timeouts=0 cost=$0.074 (total $0.27)
+[  0.8 min] done negotiation_honest_seed1       E=0.778 trades=6/4 timeouts=0 cost=$0.083 (total $0.35)
+[  0.8 min] done negotiation_neutral_seed1      E=0.951 trades=6/4 timeouts=0 cost=$0.089 (total $0.44)
+[  0.9 min] done negotiation_aggressive_seed0   E=0.944 trades=9/8 timeouts=0 cost=$0.075 (total $0.51)
+[  1.0 min] done negotiation_aggressive_seed1   E=0.898 trades=6/4 timeouts=0 cost=$0.100 (total $0.61)
+[  1.0 min] all runs finished; estimated spend $0.61
+[  1.0 min] wrote /Users/zachchen/Downloads/llm-market-mechanisms/outputs/v2/tinker-gptoss120b/results.md

@@ -1,6 +1,7 @@
 """Why weak agents fail in the v2 chat market, and what Opus does differently.
 
-  python -m v2.failure_analysis
+  python -m v2.failure_analysis                      # tinker and claude-cli
+  python -m v2.failure_analysis tinker-gptoss120b    # any folder under outputs/v2/
 
 Reads outputs/v2/tinker (Qwen3-8B + GPT-OSS-20B) and outputs/v2/claude-cli (Opus 5.5, seed 0)
 and prints the numbers quoted in analysis/v2_why_agents_fail.md. Keyword checks are heuristics;
@@ -125,7 +126,9 @@ def late_rounds(backend):
 
 
 def main():
-    for backend, label in (("tinker", "Qwen3-8B + GPT-OSS-20B (30 chat markets)"), ("claude-cli", "Opus 5.5 (3 chat markets, seed 0)")):
+    dirs = sys.argv[1:] or ["tinker", "claude-cli"]  # folder names under outputs/v2/
+    for backend in dirs:
+        label = f"{backend} ({len(list(runs(backend)))} chat markets)"
         rows = list(welfare_loss(backend))
         if not rows:
             continue

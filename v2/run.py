@@ -137,6 +137,7 @@ async def main():
     ap.add_argument("--deadline-min", type=float, default=100, help="stop starting new rounds after this many minutes")
     ap.add_argument("--mock-latency", type=float, default=0.0, help="mock only: max simulated seconds per call")
     ap.add_argument("--no-debrief", dest="debrief", action="store_false")
+    ap.add_argument("--tag", default=None, help="write to outputs/v2/<backend>-<tag>/ (keeps separate batches apart)")
     args = ap.parse_args()
     anth = args.backend in ("anthropic", "claude-cli")
     args.models = args.models or (["claude-opus-5-5"] if anth else DEFAULT_MODELS)
@@ -144,7 +145,7 @@ async def main():
     args.max_tokens = args.max_tokens or (8000 if anth else 2048)
 
     load_env()
-    out_dir = os.path.join(ROOT, "outputs", "v2", args.backend)
+    out_dir = os.path.join(ROOT, "outputs", "v2", args.backend + (f"-{args.tag}" if args.tag else ""))
     os.makedirs(out_dir, exist_ok=True)
     summary_path = os.path.join(out_dir, "summary.jsonl")
     done = set()
@@ -191,7 +192,7 @@ async def main():
     from v2 import analyze
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
-        sys.argv = ["analyze", "--backend", args.backend, "--examples", "3"]
+        sys.argv = ["analyze", "--backend", os.path.basename(out_dir), "--examples", "3"]
         analyze.main()
     with open(os.path.join(out_dir, "results.md"), "w") as fh:
         fh.write(buf.getvalue())

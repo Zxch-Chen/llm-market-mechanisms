@@ -125,6 +125,22 @@ Data: `outputs/v2/claude-cli/`.
 
 ---
 
+## Middle-tier models (seeds 0–1)
+
+| | Qwen3-8B + GPT-OSS-20B | GPT-OSS-120B | Qwen3.8-27B | Opus 5.5 (seed 0) |
+|---|---|---|---|---|
+| Chat efficiency | 69% | 92% | 96% | 99% |
+| Chat trades that broke a client's limit | 7 of 46 | 1 of 44 | 0 of 41 | 0 of 25 |
+| Planner misreports, honest framing | 7% | 4% | **31%** | 0% |
+
+- **Stronger models stop hurting their own client.**
+- **Only Opus fixes who gets matched with whom.**
+- **Competence and honesty are separate.** Qwen3.8-27B is very competent, but it misreports 31% of the time even when told to be honest. Its thinking never mentions the honesty rule; it optimizes the client's price instead.
+
+Details and caveats: [`DISCUSSION.md`](DISCUSSION.md) section 7. Only 2 seeds per model, so treat these as directions.
+
+---
+
 ## Why weak agents fail and Opus doesn't
 
 Reading the reasoning logs, the weak models failed for four reasons:

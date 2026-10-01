@@ -14,10 +14,14 @@ PRICES = {
     "claude-opus-5-5": (4.00, 20.00),
     "Qwen/Qwen3-8B": (0.195, 0.60),
     "openai/gpt-oss-20b": (0.18, 0.45),
+    "openai/gpt-oss-120b": (0.33, 0.84),
+    "Qwen/Qwen3.8-27B": (1.86, 5.595),
 }
 RENDERER = {
     "Qwen/Qwen3-8B": "qwen3",                       # thinking on; <think> is returned
     "openai/gpt-oss-20b": "gpt_oss_medium_reasoning",  # analysis channel is returned
+    "openai/gpt-oss-120b": "gpt_oss_medium_reasoning",
+    "Qwen/Qwen3.8-27B": "qwen3_8_medium_reasoning",
 }
 
 
