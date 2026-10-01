@@ -196,7 +196,7 @@ async def main():
         analyze.main()
     with open(os.path.join(out_dir, "results.md"), "w") as fh:
         fh.write(buf.getvalue())
-    say(f"wrote {os.path.join(out_dir, 'results.md')}")
+    say(f"wrote {os.path.relpath(os.path.join(out_dir, 'results.md'), ROOT)}")
 
 
 if __name__ == "__main__":

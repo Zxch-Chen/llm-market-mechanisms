@@ -24,4 +24,4 @@
 [  9.4 min] done negotiation_honest_seed0       E=1.000 trades=8/8 timeouts=0 cost=$3.558 (total $8.85)
 [  9.9 min] done negotiation_aggressive_seed0   E=0.984 trades=8/8 timeouts=0 cost=$3.618 (total $12.46)
 [  9.9 min] all runs finished; estimated spend $12.46
-[  9.9 min] wrote /Users/zachchen/Downloads/llm-market-mechanisms/outputs/v2/claude-cli/results.md
+[  9.9 min] wrote outputs/v2/claude-cli/results.md

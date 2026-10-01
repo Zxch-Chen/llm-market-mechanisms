@@ -193,4 +193,4 @@
 [ 26.9 min] done negotiation_aggressive_seed9   E=-0.012 trades=11/6 timeouts=0 cost=$0.103 (total $2.80)
 [ 27.0 min] done negotiation_aggressive_seed3   E=0.474 trades=9/5 timeouts=0 cost=$0.145 (total $2.94)
 [ 27.0 min] all runs finished; estimated spend $2.94
-[ 27.0 min] wrote /Users/zachchen/Downloads/llm-market-mechanisms/outputs/v2/tinker/results.md
+[ 27.0 min] wrote outputs/v2/tinker/results.md
