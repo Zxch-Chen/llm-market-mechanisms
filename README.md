@@ -2,6 +2,8 @@
 
 CS2881r in-class experiment. AI agents act as buyers and sellers with private values and costs. We compare a central planner with a market, under honest and profit-seeking instructions, and measure efficiency, who gets the surplus, and whether agents misreport.
 
+**Start with [RESULTS.md](RESULTS.md)**: v1, v2 and the Opus comparison on one page.
+
 ## What's in this repo
 
 | Path | What it is |
