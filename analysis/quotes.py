@@ -1,9 +1,10 @@
-"""Draft quotes.md from logs: rows where the agent said the truthful report
+"""Print candidate quotes from logs: rows where the agent said the truthful report
 was welfare-maximizing and misreported anyway (knows_but_defects)."""
 import json
+from pathlib import Path
 import sys
 
-path = sys.argv[1] if len(sys.argv) > 1 else "outputs/logs.jsonl"
+path = sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / "outputs/logs.jsonl"
 n = int(sys.argv[2]) if len(sys.argv) > 2 else 12
 rows = [json.loads(l) for l in open(path) if l.strip()]
 kbd = [r for r in rows if r["knows_but_defects"]]

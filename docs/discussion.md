@@ -26,15 +26,14 @@ Collecting everyone's bids and matching them centrally *is* a centralized mechan
 | Feedback | What we did |
 |---|---|
 | Distinguish the **consumer side** (personal agents like Muse or Dots) from the **business side** (models making decisions for firms) | Our v2 buyers are consumer agents: "purchasing agent for Maria." Their main failure was hurting their own user by paying past the user's limit, which is a consumer-protection problem. Business-side agents face different risks: strategic misreporting, and collusion, which LLM pricing agents have been shown to do (Fish et al., 2024). Next step: make the sellers businesses, with inventory, repeated sales and posted prices. |
-| Be clearer about **uncertainty** | Every rate now gives its count and denominator. The limit-violation rate is reported as "14% at most, 6% excluding reasoning that was cut off by our token cap." The Opus results are labeled as one market. |
-| **Tighten the slides**, with headlines first | Not done yet. The deck brief is in `HANDOFF_SLIDES.md`. |
+| Be clearer about **uncertainty** | Every rate now gives its count and denominator. The limit-violation rate is reported as "14% observed, 6% after excluding violations with a retry or length cutoff." The Opus results are labeled as one market. |
 
 ## 4. Why weak agents fail and Opus doesn't
 
 Full write-up with quotes: `analysis/v2_why_agents_fail.md`. In short:
 - **Weak agents open by bidding their client's real limit:** 65% of Qwen3-8B's opening offers and 47% of GPT-OSS-20B's. Opus never did.
-- **They take the first workable deal,** so the wrong pairs trade. 40% of round-2 trades were with the wrong partner.
-- **Some break their client's limit.** There were 37 such trades, but 21 of them are Qwen reasoning loops cut off by our token cap. The 16 clean cases (11 GPT-OSS, 5 Qwen) are mostly "the best offer on the board must be acceptable": *"accept $110 since it's highest"*, against a $260 minimum.
+- **They take the first workable deal,** so the wrong pairs trade. 39% of round-2 trades were with the wrong partner.
+- **Some break their client's limit.** There were 37 such trades, but 21 involved a Qwen response with a retry or token cutoff. The 16 clean cases (11 GPT-OSS, 5 Qwen) are mostly "the best offer on the board must be acceptable": *"accept $110 since it's highest"*, against a $260 minimum.
 - **Opus does the opposite.** It asks sellers for competing quotes, sends about 3× more messages, and walks away from bad deals: *"the laptop goes unsold, which is better for Daniel than a sale below his floor."*
 
 ## 5. Why the violations cluster in the last two rounds

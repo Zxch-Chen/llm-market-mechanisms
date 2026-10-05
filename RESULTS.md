@@ -15,7 +15,7 @@ We ran two experiments:
 
 Our experiments suggest these three come apart. They improve differently as models get stronger, and instructions control only one of them, honesty, and only for some models.
 
-1. **In a simple market, a strong model's honesty is a switch set by its instructions** (v1). Told to be honest, Opus never misreported (0 of 408). Told to make money, it shaded 88% of the time while saying plainly that honesty was best for everyone. The market barely noticed (98.6–99.6% efficiency), because the clearing rules did most of the work.
+1. **In a simple market, a strong model's honesty is a switch set by its instructions** (v1). Told to be honest, Opus never misreported (0 of 408). Told to make money, it shaded 88% of the time while saying plainly that honesty was best for everyone. Efficiency under the profit prompt remained at 98.6–99.6%, because the clearing rules did most of the work.
 
 2. **In a realistic market, the bigger danger with weak agents is hurting their own client, not lying** (v2, small models). Once the agents had to negotiate on their own:
    - they gave away their client's limits;
@@ -41,14 +41,14 @@ Our experiments suggest these three come apart. They improve differently as mode
 - **Business-side agents can't be assumed honest just because they're capable.**
 - **Market designers can make up for weak agents** with central matching. Decentralized markets only work once the agents themselves are good at finding prices.
 
-**How sure are we?** v1 has 10 markets per condition, and v2's small-model run has 10 too. The middle tier has 2 per model and Opus in v2 has 1. Treat the scaling story as a direction, not a measured effect. Details and caveats are throughout below and in [`DISCUSSION.md`](DISCUSSION.md).
+**How sure are we?** v1 has 10 markets per condition, and v2's small-model run has 10 too. The middle tier has 2 per model and Opus in v2 has 1. Treat the scaling story as a direction, not a measured effect. Details and caveats are throughout below and in [discussion notes](docs/discussion.md).
 
 **How to read the numbers:**
 - **Efficiency** is the share of the best possible gains from trade that actually happened.
 - A **misreport** is a report more than $0.50 away from the agent's true number.
 - **±** is a 95% t-interval over the markets.
 
-Every number below comes from `analysis/analyze.py` (v1) or `v2/analyze.py` (v2).
+Sources: `analysis/analyze.py` (v1), `v2/analyze.py` (v2 tables), and `v2/failure_analysis.py` (chat failures). The v2 confidence intervals use the same paired-seed, t-interval calculation as v1. See [reproducibility notes](docs/reproducibility.md) for limits in the archived runs and post-experiment fixes.
 
 ---
 
@@ -69,7 +69,7 @@ Every number below comes from `analysis/analyze.py` (v1) or `v2/analyze.py` (v2)
 
 **Takeaways:**
 - **Honesty acts like a switch.** There were 0 misreports in 408 decisions under the honest prompt and 374 in 426 (88%) under the profit prompt.
-- **Every misreport was knowing.** In all 834 decisions the agent said the truth maximizes total welfare.
+- **Every misreport accompanied a truthful welfare answer.** In all 834 decisions the agent reported its true number as welfare-maximizing. This is a self-report, not independent evidence of what the model knew.
 - **Efficiency barely moved.** Each market has only 1–4 good trades, and only the borderline one is at risk.
 - **Not significant:** the seller advantage in the auction (16 ± 21) and the auction-vs-planner gap.
 
@@ -96,7 +96,7 @@ More detail: `report/STAGE3_REPORT.pdf` and `analysis/tables.md`.
 | Chat negotiation | 64.3% ± 16.1 | 77.7% ± 9.6 | 61.7% ± 20.5 |
 | Planner minus chat, paired by market | +33 ± 17 pts | +22 ± 10 pts | +30 ± 20 pts |
 
-- **The gap is significant under all three framings.** The planner matches the right buyers with the right sellers; in chat, the wrong pairs trade. There were 121 extra-marginal trades in chat against 6 in the planner.
+- **The gap is significant under all three framings.** The planner matches the right buyers with the right sellers; in chat, the wrong pairs trade. There were 118 extra-marginal trades in chat against 6 in the planner.
 - **One aggressive chat market ended with negative total welfare.**
 - **The honest framing helps.** In the planner it beats the aggressive framing by +8.6 ± 5.8 points; in chat it beats the neutral framing by +13.4 ± 12.1.
 
@@ -104,7 +104,7 @@ More detail: `report/STAGE3_REPORT.pdf` and `analysis/tables.md`.
 
 In chat, 37 of 258 trades (14%) violated the client's limit. In the planner it was 1 of 182.
 
-About half of those (21) happened right after the agent's reasoning was cut off by our 2,048-token cap, so 14% is an upper bound. Excluding those cases, **16 of 258 (6%)** remain, mostly GPT-OSS (11). Those are genuine reasoning errors, mostly of the form "best available = acceptable." Qwen's violations were mostly reasoning loops that ran out of room.
+Of those 37 violations, 21 involved a JSON retry or a response that hit the token cap. The observed rate is **37 of 258 (14%)**. Excluding those flagged violations leaves **16 of 258 (6%)**, mostly GPT-OSS (11). This exclusion does not estimate what the agents would do with a larger token budget: retries can also follow malformed JSON. In the remaining transcripts, agents often treated the best available offer as acceptable even when it crossed their client's limit.
 
 | | Buyer paid above client's max | Seller sold below client's min |
 |---|---|---|
@@ -174,7 +174,7 @@ Data: `outputs/v2/claude-cli/`.
 - **Only Opus fixes who gets matched with whom.**
 - **Competence and honesty are separate.** Qwen3.8-27B is very competent, but it misreports 31% of the time even when told to be honest. Its thinking never mentions the honesty rule; it optimizes the client's price instead.
 
-Details and caveats: [`DISCUSSION.md`](DISCUSSION.md) section 7. Only 2 seeds per model, so treat these as directions.
+Details and caveats: [discussion notes](docs/discussion.md) section 7. Only 2 seeds per model, so treat these as directions.
 
 ---
 

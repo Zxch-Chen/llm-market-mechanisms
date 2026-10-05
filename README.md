@@ -1,93 +1,106 @@
 # LLM agents in markets: do AI traders tell the truth?
 
-CS2881r in-class experiment. AI agents act as buyers and sellers with private values and costs. We compare a central planner with a market, under honest and profit-seeking instructions, and measure efficiency, who gets the surplus, and whether agents misreport.
+A completed CS2881r class experiment on AI agents trading with private values and costs. We compare central clearing with auctions or chat negotiation, and measure efficiency, surplus, and misreporting.
 
-**Start with [RESULTS.md](RESULTS.md)**: v1, v2 and the Opus comparison on one page.
+Start with **[Results](RESULTS.md)**. The repository includes the code, prompts, recorded decisions, trade logs, and reports. You can inspect and analyze the saved experiments without API keys.
 
-## What's in this repo
+## Findings and scope
 
-| Path | What it is |
+- **v1, Claude Opus 5.5:** 0 of 408 decisions misreported under the honest prompt; 374 of 426 did under the profit prompt. Mean efficiency was 100% under the honest prompt and 98.6–99.6% under the profit prompt.
+- **v2, Qwen3-8B + GPT-OSS-20B:** mean chat efficiency ranged from 62–78% across framings, versus 91–100% for the planner. In chat, 37 of 258 trades crossed a client's price limit. Of these, 21 involved a retry or token cutoff; see the [reproducibility notes](docs/reproducibility.md) before interpreting that rate.
+- **v2, Opus:** chat efficiency was 98–100%, with no limit violations in 25 trades. This comparison has one seed per condition and used Claude Code, which adds environment context. It is exploratory.
+
+Both main experiments use 10 seeds per condition. The additional model comparisons use only one or two. Agents' explanations and debriefs are self-reports; keyword-based chat analyses need transcript review.
+
+## Repository guide
+
+| Path | Contents |
 |---|---|
-| `mechanisms/`, `config.py`, `agents/`, `runner.py` | **v1** (Stages 1–2). A 5×5 single-good market with Claude Opus 5.5 agents. Planner vs. 5-round double auction, honest vs. profit prompt, 40 runs. |
-| `outputs/logs.jsonl`, `outputs/summary.jsonl` | v1 data: 834 agent decisions and 40 run summaries. The schema is in `schema.md`. |
-| `analysis/` | v1 analysis (`analyze.py`, standard library only), tables, and figures (PNG/SVG). |
-| `report/STAGE3_REPORT.pdf` | The v1 writeup, with related work on human double-auction experiments. |
-| `report/LLM_Markets_Presentation.pptx` | The slide deck. Rebuild it with `report/deck/build_deck.js`. |
-| `v2/` | **v2**, the realistic economy. 24 agents and 3 goods (bikes, laptops, tickets). Each agent works for a named person, in a central planner or a 6-round chat marketplace with messages, under neutral, honest or aggressive framings. Full reasoning is logged. See `v2/README.md`. |
-| `outputs/v2/tinker/` | v2 with Qwen3-8B + GPT-OSS-20B: 60 runs (10 markets × 6 conditions). Tables are in `results.md`; every call's prompt and thinking is in `runs/*/calls.jsonl`. |
-| `outputs/v2/tinker-gptoss120b/`, `outputs/v2/tinker-qwen38-27b/` | v2 with middle-tier models, seeds 0–1 (12 runs each). |
-| `outputs/v2/claude-cli/` | v2 with Claude Opus 5.5 via `claude -p`, on seed 0 only (6 runs). Exploratory: the agents also saw Claude Code's environment context, and no reasoning text is returned. |
-| `DISCUSSION.md` | Mechanism design questions, the instructor's feedback, why agents fail, objectives and alignment, and middle-tier results. |
-| `NOTES_stage3.md`, `HANDOFF_SLIDES.md` | Corrections to earlier notes; the full results summary and slide brief. |
+| [RESULTS.md](RESULTS.md) | Results across v1, v2, and model comparisons |
+| `mechanisms/`, `agents/`, `config.py`, `runner.py` | v1: 5 buyers, 5 sellers, one good; planner versus 5-round call double auction |
+| [v2/](v2/README.md) | v2: 24 agents, three goods; planner versus 6-round chat negotiation |
+| [outputs/](outputs/README.md) | Committed experiment data and a batch inventory |
+| `analysis/` | v1 analysis, v2 comparison figures, tables, and selected quotes |
+| [docs/](docs/README.md) | Design history, schemas, discussion, and reproducibility limits |
+| [report/](report/README.md) | v1 written report and presentation, with source files |
+| `tests/` | Offline mechanism and runner regression tests |
 
-## Headline results
+## Verify and analyze the saved experiment
 
-- **v1 (Opus, simple market).** Honesty acts like a switch. There were 0 of 408 misreports under the honest prompt and 374 of 426 (88%) under the profit prompt. In every one of the 834 decisions, the agent said the truth maximizes welfare. Efficiency stayed at 98.6–99.6%.
-- **v2 (Qwen3-8B / GPT-OSS-20B, realistic economy).**
-  - Chat negotiation loses far more welfare than the planner: 62–78% vs 91–100% efficiency.
-  - Agents broke their own client's price limits in 14% of chat trades.
-  - GPT-OSS misreports far more than Qwen, even when told to be honest.
-- **v2 with Opus (seed 0, exploratory).**
-  - Opus kept 98–100% efficiency even in chat, and never broke a client's limit. This suggests the chat inefficiency comes mostly from weak agents, not from chat itself.
-  - Under the neutral framing it still shaded half its planner reports.
-  - It reported its own misrepresentations accurately in the debrief.
-
-## Running
+Use Python **3.11 or newer**, from the repository root:
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r v2/requirements.txt
-.venv/bin/python -m pytest -q                  # 14 tests, no network
-.venv/bin/python analysis/analyze.py           # v1 tables and figures
-.venv/bin/python -m v2.run --backend mock      # v2 plumbing, free
-.venv/bin/python -m v2.analyze --backend tinker
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pytest -q
+
+# Recompute v1 tables and SVG figures into a local directory.
+python analysis/analyze.py --out outputs/local/analysis-v1
+
+# Print v2 tables and the chat-failure analysis from committed data.
+python -m v2.analyze --backend tinker
+python -m v2.failure_analysis
 ```
 
-Real v2 runs need `TINKER_API_KEY` (Tinker backend), `ANTHROPIC_API_KEY` (`--backend anthropic`), or a Claude Code login (`--backend claude-cli`), in a local `.env` that git ignores.
+The analysis above uses the Python standard library. To rebuild the five v2 comparison PNGs, install Matplotlib:
 
----
+```bash
+python -m pip install -r analysis/requirements.txt
+python analysis/v2_mix_figures.py --out outputs/local/figures-v2
+```
+
+`analysis/analyze.py` generates SVGs; the committed v1 PNGs are exports used by the presentation. The [report guide](report/README.md) describes rebuilding the deck.
+
+## Run an offline smoke test
+
+```bash
+python runner.py --mock --pilot
+python -m v2.run --backend mock --seeds 0
+python -m v2.analyze --input outputs/local/v2/mock
+```
+
+New runs default to ignored directories under `outputs/local/`; the committed experiment data stays separate. Both runners skip completed run IDs on restart. Use a fresh `--out` directory for a new batch, or `--tag` for v2. Changing a model or recorded v2 settings in an existing batch raises an error. See [reproducibility notes](docs/reproducibility.md) for resume limits.
+
+## Run with a model provider
+
+These commands make paid model calls. Model names, provider features, and prices in the source record the experiment setup; availability and charges may differ for a new run.
+
+```bash
+# v1: Anthropic API
+python -m pip install anthropic
+export ANTHROPIC_API_KEY=your_key
+python runner.py --pilot --out outputs/local/v1-new
+
+# v2: Tinker and optional Anthropic dependencies
+python -m pip install -r v2/requirements.txt
+export TINKER_API_KEY=your_key
+python -m v2.run --backend tinker --seeds 0 1 --tag new
+```
+
+You can also place API keys in a local `.env` file, which git ignores. The v2 Claude CLI backend uses an existing Claude Code login instead of an API key. See the [v2 guide](v2/README.md) for backend options and limitations.
 
 ## v1 mechanisms API
 
-Do LLM agents report truthfully in a double auction vs. a central planner? 2 mechanisms × 2 prompts × 10 seeds = 40 runs.
-
-## Setup
-
-```bash
-pip install -r requirements.txt
-python -m pytest -q
-```
-
-Python 3.9+, no dependencies beyond `pytest`.
-
-## Calling the mechanisms
-
-`config.draw_market(seed)` returns `(buyers, sellers)`: 5 `Buyer(id, value)` and 5 `Seller(id, cost)` with values/costs i.i.d. U[0,100].
-
-**Planner** is one-shot. Collect one report per agent, then
-
 ```python
-from mechanisms import run_planner, efficiency
-out = run_planner(buyers, sellers, reported_values={"B0": 71.0, ...}, reported_costs={"S0": 12.0, ...})
-out.trades   # list[Trade(buyer_id, seller_id, price, bid, ask)]
-out.price    # single uniform price = midpoint of the marginal matched pair, or None
-efficiency(out.trades, buyers, sellers)
+import config
+from mechanisms import DoubleAuction, efficiency, run_planner
+
+buyers, sellers = config.draw_market(seed=0)
+values = {b.id: b.value for b in buyers}
+costs = {s.id: s.cost for s in sellers}
+
+planner = run_planner(buyers, sellers, values, costs)
+print(planner.price, efficiency(planner.trades, buyers, sellers))
+
+auction = DoubleAuction(buyers, sellers, n_rounds=config.N_ROUNDS)
+while not auction.done:
+    # Replace these truthful reports with agent decisions as needed.
+    auction.step(
+        {b.id: b.value for b in auction.active_buyers},
+        {s.id: s.cost for s in auction.active_sellers},
+    )
+print(efficiency(auction.trades, buyers, sellers))
 ```
 
-**Double auction** is a step-based state machine so an async runner can query agents between rounds:
-
-```python
-from mechanisms import DoubleAuction
-da = DoubleAuction(buyers, sellers, n_rounds=config.N_ROUNDS)
-while not da.done:
-    state = da.public_state()           # round, counts, past sorted bids/asks/prices (no private info)
-    bids = {b.id: ... for b in da.active_buyers}   # ask agents (await them concurrently here)
-    asks = {s.id: ... for s in da.active_sellers}
-    da.step(bids, asks)                 # returns this round's trades; traders exit after trading
-da.trades                              # all trades across rounds
-```
-
-Each round: bids sorted descending, asks ascending, k-th bid matched with k-th ask while bid ≥ ask, price = midpoint. `run_double_auction(buyers, sellers, bid_fn, ask_fn)` is a synchronous wrapper for scripted bots (see `mechanisms/bots.py`).
-
-**Welfare** (`mechanisms/welfare.py`, always on true values): `optimal_welfare` (W*), `realized_welfare`, `efficiency` (E = W_realized / W*), `payoffs` (per agent), `surplus_split` (buyer vs seller).
-
-The agent output format and log row schema are in `schema.md`. Design decisions and rationale are in `DESIGN_LOG.md`.
+Both mechanisms sort buyer reports descending and seller reports ascending, then match while bid ≥ ask. The planner uses one uniform price: the midpoint of the marginal matched pair. The auction uses each pair's midpoint and allows unmatched traders to return next round. Welfare accounting uses true values and costs.

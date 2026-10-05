@@ -1,7 +1,7 @@
 const pptxgen = require("pptxgenjs");
 const path = require("path");
 
-const OUT = path.join(__dirname, "..", "LLM_Markets_Presentation.pptx");
+const OUT = process.argv[2] ? path.resolve(process.argv[2]) : path.join(__dirname, "..", "LLM_Markets_Presentation.pptx");
 const FIG = path.join(__dirname, "..", "..", "analysis", "figures");
 
 const NAVY = "16213E", INK = "1A1A1A", INK2 = "4A4A4A", MUTED = "8A8A8A";

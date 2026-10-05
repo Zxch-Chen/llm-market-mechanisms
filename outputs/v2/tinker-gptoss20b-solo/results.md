@@ -1,5 +1,7 @@
 # v2 results (tinker-gptoss20b-solo, 12 runs)
 
+Extra-marginal counts include traders tied at the efficient cutoff as eligible; they are recomputed from trade events. Archived raw summaries retain the original counts.
+
 | mechanism | framing | runs | efficiency | trades / efficient | losing trades | extra-marginal | buyer surplus | seller surplus | est. cost |
 |---|---|---|---|---|---|---|---|---|---|
 | negotiation | aggressive | 2 | 0.273 | 20 / 12 | 5 | 12 | 412 | -107 | $0.11 |

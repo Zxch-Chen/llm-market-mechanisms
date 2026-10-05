@@ -69,7 +69,7 @@ So it's a **selection effect plus deadline pressure.** By the end, only agents f
 
 **Weak agents open by bidding their client's real limit.** In round 1, 65% of Qwen's offers and 47% of GPT-OSS's were posted at exactly the client's maximum or minimum. That gives away all the client's surplus. It also means any seller whose cost is below a buyer's bid will take it on the spot, regardless of who should get the item.
 
-**So the wrong trades start immediately.** 64 of 158 round-2 trades were with the wrong partner. In the late rounds almost every trade was wrong: 15 of 16 in round 6, when leftover agents grab whatever is left.
+**So the wrong trades start immediately.** 61 of 158 round-2 trades were with the wrong partner. In the late rounds almost every trade was wrong: 15 of 16 in round 6, when leftover agents grab whatever is left.
 
 The result is first-come-first-served matching, with no price discovery. The planner avoids this by sorting everyone first. That's why it beat chat by 22–33 points with these models.
 
@@ -78,7 +78,7 @@ The result is first-come-first-served matching, with no price discovery. The pla
 **It never opens at the limit** (0 of 84 opening offers). It reads the market first and makes sellers compete:
 > *Opus buyer (`negotiation_aggressive_seed0`, B2, round 1):* "Four laptop sellers… face four laptop buyers… so competition is balanced. I'll open with a low public bid and ask the sellers privately for quotes so they compete with each other."
 
-**It talks more.** Opus agents sent 624 messages in the seed-0 markets, against 183 from the weak models on the same markets. Asking for quotes and haggling is how prices get discovered, so buyers and sellers who value a trade most find each other. Opus made 0 wrong-pair trades in round 2, against 40% for the weak models.
+**It talks more.** Opus agents sent 624 messages in the seed-0 markets, against 183 from the weak models on the same markets. Asking for quotes and haggling is how prices get discovered, so buyers and sellers who value a trade most find each other. Opus made 0 wrong-pair trades in round 2, against 39% for the weak models.
 
 **It treats "no trade" correctly.** On the same seed, the Opus seller of the $862-minimum laptop, facing a $369 bid in the last round:
 > "Taking it would break his floor, so I won't accept any open offer… Otherwise the laptop goes unsold, which is better for Daniel than a sale below his floor."

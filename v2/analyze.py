@@ -18,7 +18,7 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from v2.economy import GOODS, draw_economy  # noqa: E402
+from v2.economy import draw_economy, welfare_report  # noqa: E402
 
 BUYER_CLAIM = re.compile(r"(budget|max(?:imum)?|at most|can'?t (?:go|pay|spend) (?:above|over|more than|higher than|past)|"
                          r"ceiling|limit|afford|top out|most (?:i|we|they|my client) can)[^$\d]{0,30}\$?\s?(\d{2,5})", re.I)
@@ -27,8 +27,8 @@ SELLER_CLAIM = re.compile(r"(minimum|lowest|at least|can'?t (?:go|accept|take|se
                           r"[^$\d]{0,30}\$?\s?(\d{2,5})", re.I)
 
 
-def load(backend):
-    base = os.path.join(ROOT, "outputs", "v2", backend)
+def load(backend="tinker", input_dir=None):
+    base = input_dir or os.path.join(ROOT, "outputs", "v2", backend)
     summ = [json.loads(l) for l in open(os.path.join(base, "summary.jsonl")) if l.strip()]
     runs = {}
     for s in summ:
@@ -37,6 +37,10 @@ def load(backend):
             "calls": [json.loads(l) for l in open(os.path.join(d, "calls.jsonl"))],
             "events": [json.loads(l) for l in open(os.path.join(d, "events.jsonl"))],
         }
+        # Archived summaries used an arbitrary tie-break for marginal traders.
+        # Correct only the derived metric; preserve the original summary files.
+        trades = [e for e in runs[s["run_id"]]["events"] if e.get("type") == "trade"]
+        s["extra_marginal_trades"] = welfare_report(trades, *draw_economy(s["seed"]))["extra_marginal_trades"]
     return summ, runs
 
 
@@ -70,14 +74,18 @@ def mean(xs):
     return st.mean(xs) if xs else float("nan")
 
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--backend", default="tinker")
+    ap.add_argument("--input", help="batch directory containing summary.jsonl and runs/")
     ap.add_argument("--examples", type=int, default=0)
-    args = ap.parse_args()
-    summ, runs = load(args.backend)
+    args = ap.parse_args(argv)
+    summ, runs = load(args.backend, args.input)
 
-    print(f"# v2 results ({args.backend}, {len(summ)} runs)\n")
+    label = os.path.basename(os.path.normpath(args.input)) if args.input else args.backend
+    print(f"# v2 results ({label}, {len(summ)} runs)\n")
+    print("Extra-marginal counts include traders tied at the efficient cutoff as eligible; "
+          "they are recomputed from trade events. Archived raw summaries retain the original counts.\n")
     print("| mechanism | framing | runs | efficiency | trades / efficient | losing trades | extra-marginal | buyer surplus | seller surplus | est. cost |")
     print("|---|---|---|---|---|---|---|---|---|---|")
     groups = defaultdict(list)

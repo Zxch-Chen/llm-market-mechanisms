@@ -1,5 +1,7 @@
 # v2 results (tinker-qwen3-8b-solo, 12 runs)
 
+Extra-marginal counts include traders tied at the efficient cutoff as eligible; they are recomputed from trade events. Archived raw summaries retain the original counts.
+
 | mechanism | framing | runs | efficiency | trades / efficient | losing trades | extra-marginal | buyer surplus | seller surplus | est. cost |
 |---|---|---|---|---|---|---|---|---|---|
 | negotiation | aggressive | 2 | 0.366 | 22 / 12 | 9 | 15 | -49 | 524 | $0.28 |

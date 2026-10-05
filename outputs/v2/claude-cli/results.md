@@ -1,5 +1,7 @@
 # v2 results (claude-cli, 6 runs)
 
+Extra-marginal counts include traders tied at the efficient cutoff as eligible; they are recomputed from trade events. Archived raw summaries retain the original counts.
+
 | mechanism | framing | runs | efficiency | trades / efficient | losing trades | extra-marginal | buyer surplus | seller surplus | est. cost |
 |---|---|---|---|---|---|---|---|---|---|
 | negotiation | aggressive | 1 | 0.984 | 8 / 8 | 0 | 1 | 805 | 445 | $3.62 |

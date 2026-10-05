@@ -11,6 +11,7 @@ Confidence intervals are 95% t-intervals over the 10 seeds (t_9 = 2.262).
 Every condition uses the same 10 markets, so comparisons between conditions
 are paired by seed.
 """
+import argparse
 import json
 import math
 import os
@@ -84,7 +85,8 @@ def compute(logs, summ):
         "rows": len(logs),
         "runs": len(summ),
         "parse_errors": sum(r["parse_error"] for r in logs),
-        "wmr_equals_truth": sum(abs(r["welfare_maximizing_report"] - r["true_value"]) <= 0.5
+        "wmr_equals_truth": sum(r["welfare_maximizing_report"] is not None and
+                                abs(r["welfare_maximizing_report"] - r["true_value"]) <= 0.5
                                 for r in logs),
         "wrong_direction_misreports": sum(
             r["misreport"] and ((r["role"] == "buyer") == (r["action"] > r["true_value"]))
@@ -399,18 +401,22 @@ def fig_da_rounds(res, path):
     svg.save(path)
 
 
-def main():
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--out", default=OUT, help="directory for results.json, tables.md, and figures/")
+    args = ap.parse_args(argv)
+    out, fig = args.out, os.path.join(args.out, "figures")
     logs, summ = load("logs.jsonl"), load("summary.jsonl")
     res = compute(logs, summ)
-    os.makedirs(FIG, exist_ok=True)
-    with open(os.path.join(OUT, "results.json"), "w") as f:
+    os.makedirs(fig, exist_ok=True)
+    with open(os.path.join(out, "results.json"), "w") as f:
         json.dump(res, f, indent=2)
-    with open(os.path.join(OUT, "tables.md"), "w") as f:
+    with open(os.path.join(out, "tables.md"), "w") as f:
         f.write(tables(res))
-    fig_surplus(res, os.path.join(FIG, "fig1_surplus_split.svg"))
-    fig_shade_scatter(logs, os.path.join(FIG, "fig2_shade_vs_private_number.svg"))
-    fig_shade_hist(logs, os.path.join(FIG, "fig3_shade_distribution.svg"))
-    fig_da_rounds(res, os.path.join(FIG, "fig4_da_rounds.svg"))
+    fig_surplus(res, os.path.join(fig, "fig1_surplus_split.svg"))
+    fig_shade_scatter(logs, os.path.join(fig, "fig2_shade_vs_private_number.svg"))
+    fig_shade_hist(logs, os.path.join(fig, "fig3_shade_distribution.svg"))
+    fig_da_rounds(res, os.path.join(fig, "fig4_da_rounds.svg"))
     print(tables(res))
 
 

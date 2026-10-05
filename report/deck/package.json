@@ -1,0 +1,14 @@
+{
+  "name": "llm-markets-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build_deck.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  },
+  "overrides": {
+    "image-size": "2.0.4"
+  }
+}

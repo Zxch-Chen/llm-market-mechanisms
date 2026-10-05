@@ -1,10 +1,11 @@
-"""Figures for DISCUSSION.md section 7b: mixed vs single-model markets.
+"""Figures for docs/discussion.md section 7b: mixed vs single-model markets.
 
 Run from the project root (needs matplotlib in .venv):
     .venv/bin/python analysis/v2_mix_figures.py
 
 Writes analysis/figures/v2_size_vs_mixing.png and analysis/figures/v2_cross_model_share.png.
 """
+import argparse
 import glob
 import json
 import os
@@ -276,10 +277,13 @@ def fig_limit_reveal():
 
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--out", default=OUT, help="directory for the five PNG figures")
+    OUT = ap.parse_args().out
+    os.makedirs(OUT, exist_ok=True)
     fig_size_vs_mixing()
     fig_size_vs_mixing(with_opus=True)
     fig_cross_model_share()
     fig_cross_model_share_all()
     fig_limit_reveal()
-    print("wrote analysis/figures/v2_size_vs_mixing.png, v2_model_ladder_with_opus.png, "
-          "v2_cross_model_share.png, v2_cross_model_share_all.png, v2_limit_reveal.png")
+    print(f"wrote five figures to {OUT}")

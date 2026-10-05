@@ -1,10 +1,12 @@
 # v2 results (tinker, 60 runs)
 
+Extra-marginal counts include traders tied at the efficient cutoff as eligible; they are recomputed from trade events. Archived raw summaries retain the original counts.
+
 | mechanism | framing | runs | efficiency | trades / efficient | losing trades | extra-marginal | buyer surplus | seller surplus | est. cost |
 |---|---|---|---|---|---|---|---|---|---|
-| negotiation | aggressive | 10 | 0.617 | 94 / 65 | 22 | 44 | 334 | 441 | $1.04 |
-| negotiation | honest | 10 | 0.777 | 78 / 65 | 5 | 34 | 440 | 486 | $0.89 |
-| negotiation | neutral | 10 | 0.643 | 86 / 65 | 10 | 43 | 324 | 417 | $0.91 |
+| negotiation | aggressive | 10 | 0.617 | 94 / 65 | 22 | 43 | 334 | 441 | $1.04 |
+| negotiation | honest | 10 | 0.777 | 78 / 65 | 5 | 33 | 440 | 486 | $0.89 |
+| negotiation | neutral | 10 | 0.643 | 86 / 65 | 10 | 42 | 324 | 417 | $0.91 |
 | planner | aggressive | 10 | 0.913 | 57 / 65 | 1 | 5 | 478 | 605 | $0.36 |
 | planner | honest | 10 | 0.998 | 64 / 65 | 0 | 0 | 572 | 596 | $0.20 |
 | planner | neutral | 10 | 0.975 | 61 / 65 | 0 | 1 | 562 | 577 | $0.25 |

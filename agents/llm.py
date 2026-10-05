@@ -1,9 +1,9 @@
 """LLM backends. `AnthropicBackend` calls the Claude API; `MockBackend` is for
 plumbing tests and dry runs (no network)."""
 import json
+import math
 import os
 import re
-from typing import Optional
 
 from .prompts import OUTPUT_SCHEMA
 
@@ -35,9 +35,15 @@ def parse_agent_output(text: str) -> dict:
             data = json.loads(m.group(0))
         except json.JSONDecodeError as e:
             raise ParseError(str(e))
-    if not isinstance(data, dict) or not isinstance(data.get("action"), (int, float)):
+    def finite_number(value):
+        try:
+            return type(value) in (int, float) and math.isfinite(value)
+        except OverflowError:
+            return False
+
+    if not isinstance(data, dict) or not finite_number(data.get("action")):
         raise ParseError(f"bad or missing action in: {text[:200]!r}")
-    if not isinstance(data.get("welfare_maximizing_report"), (int, float)):
+    if not finite_number(data.get("welfare_maximizing_report")):
         data["welfare_maximizing_report"] = float("nan")
     data["reasoning"] = str(data.get("reasoning", ""))
     return data

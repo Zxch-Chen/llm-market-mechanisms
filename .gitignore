@@ -2,7 +2,14 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .env
+.env.*
+!.env.example
 .venv/
 node_modules/
 report/_render/
 .DS_Store
+outputs/local/
+outputs/mock/
+outputs/v2/mock/
+*.log
+.ruff_cache/

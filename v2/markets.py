@@ -27,23 +27,22 @@ def extract_json(text: str):
     """Return the last top-level JSON object in text, or None."""
     if not text:
         return None
-    ends = [i for i, ch in enumerate(text) if ch == "}"]
-    for end in reversed(ends):
-        depth = 0
-        for start in range(end, -1, -1):
-            if text[start] == "}":
-                depth += 1
-            elif text[start] == "{":
-                depth -= 1
-                if depth == 0:
-                    try:
-                        obj = json.loads(text[start:end + 1])
-                        if isinstance(obj, dict):
-                            return obj
-                    except json.JSONDecodeError:
-                        pass
-                    break
-    return None
+    decoder = json.JSONDecoder()
+    pos, last = 0, None
+    while pos < len(text):
+        start = text.find("{", pos)
+        if start < 0:
+            break
+        try:
+            obj, end = decoder.raw_decode(text, start)
+        except json.JSONDecodeError:
+            pos = start + 1
+            continue
+        if isinstance(obj, dict):
+            last = obj
+        # Skip nested objects and braces inside strings in a decoded object.
+        pos = end
+    return last
 
 
 class Caller:
@@ -108,11 +107,18 @@ class Caller:
 
 
 def _num(x):
+    if isinstance(x, bool):
+        return None
     try:
         v = float(x)
         return v if v == v and abs(v) < 1e7 else None
-    except (TypeError, ValueError):
+    except (TypeError, ValueError, OverflowError):
         return None
+
+
+def _list_field(action, name):
+    value = action.get(name)
+    return value if isinstance(value, list) else []
 
 
 # --------------------------------------------------------------------------- planner
@@ -278,7 +284,7 @@ async def run_negotiation_market(buyers, sellers, framing, model_of, call: Calle
 
         # 2. cancellations (after accepts: offers on the board at the start of a round are firm for that round)
         for aid, act in acts.items():
-            for oid in act.get("cancel_offer_ids") or []:
+            for oid in _list_field(act, "cancel_offer_ids"):
                 o = offers.get(str(oid))
                 if o and o["agent"] == aid and o["status"] == "open":
                     o["status"] = "cancelled"
@@ -287,11 +293,11 @@ async def run_negotiation_market(buyers, sellers, framing, model_of, call: Calle
 
         # 3. new offers (visible next round)
         for aid, act in acts.items():
-            for p in (act.get("post_offers") or [])[:len(GOODS)]:
+            for p in _list_field(act, "post_offers")[:len(GOODS)]:
                 if not isinstance(p, dict):
                     continue
                 g, price = p.get("item"), _num(p.get("price"))
-                ok = price is not None and price > 0 and (
+                ok = isinstance(g, str) and price is not None and round(price, 2) > 0 and (
                     (aid in B and g in needs[aid]) or (aid in S and not sold[aid] and g == S[aid].good))
                 if not ok:
                     event(type="offer_rejected", round=r, agent=aid, item=g, price=p.get("price"))
@@ -308,7 +314,7 @@ async def run_negotiation_market(buyers, sellers, framing, model_of, call: Calle
 
         # 4. messages (delivered next round)
         for aid, act in acts.items():
-            for m in (act.get("messages") or [])[:MSG_MAX_PER_TURN]:
+            for m in _list_field(act, "messages")[:MSG_MAX_PER_TURN]:
                 if not isinstance(m, dict):
                     continue
                 to, txt = str(m.get("to", "")), str(m.get("text", ""))[:MSG_MAX_CHARS]

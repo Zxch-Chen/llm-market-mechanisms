@@ -17,7 +17,7 @@ from collections import Counter, defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from v2.economy import draw_economy, efficient_trades  # noqa: E402
+from v2.economy import draw_economy, efficient_trades, efficient_participants  # noqa: E402
 
 NOTICED = re.compile(r"over (the |my |her |his |their )?(budget|max|limit)|exceed|too high|above (the |her |his |their )?"
                      r"(max|budget|limit)|below (the |her |his |their )?(min|minimum|cost)|less than (the |her |his |their )?"
@@ -62,7 +62,7 @@ def limit_violations(backend):
                 reasoning = (call["thinking"] or "") + " " + (call["text"] or "")  # truncated thinking lands in text
                 out.append({"run": run, "agent": agent, "model": call["model"].split("/")[-1], "how": how, "round": rnd,
                             "retried": call["retried"],
-                            # cut off by the token cap: either retried, or the parser found JSON inside unfinished reasoning
+                            # Historical flag groups retries (including malformed JSON) and length cutoffs.
                             "truncated": call["retried"] or "length" in str(call["stop_reason"]), "noticed": bool(NOTICED.search(reasoning)),
                             "deadline_logic": bool(DEADLINE.search(reasoning)), "wait_loop": reasoning.count("Wait") >= 5})
     return out
@@ -87,8 +87,7 @@ def wrong_pairs_by_round(backend):
     wrong, tot = Counter(), Counter()
     for _, seed, ev, _ in runs(backend):
         bs, ss = draw_economy(seed)
-        eff = efficient_trades(bs, ss)
-        ok = {(g, b) for g, b, _, _ in eff} | {(g, s) for g, _, s, _ in eff}
+        ok = efficient_participants(bs, ss)
         for e in ev:
             if e["type"] == "trade":
                 tot[e["round"]] += 1
@@ -146,12 +145,12 @@ def main():
         if v:
             print("  by model and how:", dict(Counter((x["model"], x["how"]) for x in v)))
             print(f"  reasoning noticed the violation, then took it anyway: {sum(x['noticed'] for x in v)}")
-            print(f"  thinking hit the token cap, then a JSON-only retry made the call: {sum(x['retried'] for x in v)}")
+            print(f"  calls with a JSON-only retry: {sum(x['retried'] for x in v)}")
             print(f"  'Wait...' loops (5+ in the reasoning): {sum(x['wait_loop'] for x in v)}")
             print(f"  'nothing / unsold / last round' logic: {sum(x['deadline_logic'] for x in v)}")
             print(f"  in the last two rounds: {sum(x['round'] >= 5 for x in v)}")
             clean = [x for x in v if not x["truncated"]]
-            print(f"  not cut off by the token cap: {len(clean)} (noticed the violation first: {sum(x['noticed'] for x in clean)}; "
+            print(f"  no retry or length cutoff: {len(clean)} (noticed the violation first: {sum(x['noticed'] for x in clean)}; "
                   f"'nothing / last round' logic: {sum(x['deadline_logic'] for x in clean)})")
         trades = sum(1 for _, _, ev, _ in runs(backend) for e in ev if e["type"] == "trade")
         by_round = Counter(e["round"] for _, _, ev, _ in runs(backend) for e in ev if e["type"] == "trade")

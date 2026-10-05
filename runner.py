@@ -1,5 +1,5 @@
 """Async experiment runner: plugs LLM agents into the mechanisms and writes
-logs in the schema.md format.
+logs in the docs/schema.md format. New runs go under outputs/local/v1/.
 
 Usage:
   python runner.py --mock                 # plumbing check, no API calls
@@ -12,13 +12,12 @@ import asyncio
 import json
 import math
 import os
-import sys
 import time
 from typing import Dict, List, Tuple
 
 import config
-from mechanisms import DoubleAuction, run_planner, optimal_welfare, realized_welfare, efficiency, payoffs, surplus_split
-from mechanisms.types import Buyer, Seller, Trade
+from mechanisms import DoubleAuction, run_planner, optimal_welfare, realized_welfare, efficiency, surplus_split
+from mechanisms.types import Trade
 from agents.prompts import build_system, build_user
 from agents.llm import parse_agent_output, ParseError, AnthropicBackend, MockBackend
 
@@ -137,30 +136,34 @@ def _append_jsonl(path: str, rows: List[dict]) -> None:
             f.write(json.dumps(r) + "\n")
 
 
-def _done_run_ids(path: str) -> set:
+def _done_run_ids(path: str, model: str) -> set:
     if not os.path.exists(path):
         return set()
     with open(path) as f:
-        return {json.loads(l)["run_id"] for l in f if l.strip()}
+        rows = [json.loads(l) for l in f if l.strip()]
+    if any(r.get("model") != model for r in rows):
+        raise ValueError("Output directory contains a different model or mock strategy; choose a new --out.")
+    return {r["run_id"] for r in rows}
 
 
 async def main_async(args):
+    model = f"mock:{args.mock}" if args.mock else args.model
+    logs_path = os.path.join(args.out, "logs.jsonl")
+    summ_path = os.path.join(args.out, "summary.jsonl")
+    done = _done_run_ids(summ_path, model)
+    conditions = [tuple(c.split(":")) for c in args.conditions] if args.conditions else config.CONDITIONS
+    seeds = [0] if args.pilot else (args.seeds if args.seeds else config.SEEDS)
+    todo = list(dict.fromkeys((m, p, s) for (m, p) in conditions for s in seeds
+                             if run_id(m, p, s) not in done))
+    print(f"{len(todo)} runs to do ({len(done)} already done). model={model}", flush=True)
+    if not todo:
+        return
     if args.mock:
         backend, model = MockBackend(args.mock), f"mock:{args.mock}"
     else:
         backend, model = AnthropicBackend(args.model, effort=args.effort), args.model
     sem = asyncio.Semaphore(args.concurrency)
     os.makedirs(args.out, exist_ok=True)
-    logs_path = os.path.join(args.out, "logs.jsonl")
-    summ_path = os.path.join(args.out, "summary.jsonl")
-
-    conditions = [tuple(c.split(":")) for c in args.conditions] if args.conditions else config.CONDITIONS
-    seeds = [0] if args.pilot else (args.seeds if args.seeds else config.SEEDS)
-    done = set() if args.mock else _done_run_ids(summ_path)
-
-    todo = [(m, p, s) for (m, p) in conditions for s in seeds if run_id(m, p, s) not in done]
-    print(f"{len(todo)} runs to do ({len(done)} already done). model={model}", flush=True)
-
     t0 = time.time()
     async def do(m, p, s):
         rows, summary = await run_one(m, p, s, backend, sem, model)
@@ -178,13 +181,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mock", nargs="?", const="truthful", choices=["truthful", "shade", "garbage"])
     ap.add_argument("--pilot", action="store_true", help="seed 0 only")
-    ap.add_argument("--seeds", type=int, nargs="*")
-    ap.add_argument("--conditions", nargs="*", help="e.g. planner:strategic double_auction:truthful")
+    ap.add_argument("--seeds", type=int, nargs="+")
+    ap.add_argument("--conditions", nargs="+", choices=[f"{m}:{p}" for m, p in config.CONDITIONS])
     ap.add_argument("--model", default=config.MODEL_NAME)
     ap.add_argument("--effort", default="medium")
     ap.add_argument("--concurrency", type=int, default=8)
-    ap.add_argument("--out", default="outputs")
+    ap.add_argument("--out", default="outputs/local/v1")
     args = ap.parse_args()
+    if args.concurrency <= 0:
+        ap.error("--concurrency must be positive")
     if args.mock:
         args.out = os.path.join(args.out, "mock")
     asyncio.run(main_async(args))

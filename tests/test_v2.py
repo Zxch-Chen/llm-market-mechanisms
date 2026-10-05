@@ -9,8 +9,27 @@ from v2.backends import MockBackend
 from v2.economy import GOODS, draw_economy, efficient_trades, welfare_report
 from v2.markets import extract_json
 from v2.run import assign_models
+from v2.economy import BuyerAgent, SellerAgent
 
 MODELS = ["Qwen/Qwen3-8B", "openai/gpt-oss-20b"]
+
+
+def test_marginal_buyer_ties_do_not_count_as_extra_marginal():
+    buyers = [BuyerAgent("B0", "a", {"bike": 100}), BuyerAgent("B1", "b", {"bike": 100}),
+              BuyerAgent("B2", "c", {"bike": 90})]
+    sellers = [SellerAgent("S0", "d", "bike", 20)]
+    for buyer, expected in [("B0", 0), ("B1", 0), ("B2", 1)]:
+        trades = [{"good": "bike", "buyer": buyer, "seller": "S0", "price": 50}]
+        assert welfare_report(trades, buyers, sellers)["extra_marginal_trades"] == expected
+
+
+def test_marginal_seller_ties_do_not_count_as_extra_marginal():
+    buyers = [BuyerAgent("B0", "a", {"bike": 100})]
+    sellers = [SellerAgent("S0", "b", "bike", 20), SellerAgent("S1", "c", "bike", 20),
+               SellerAgent("S2", "d", "bike", 30)]
+    for seller, expected in [("S0", 0), ("S1", 0), ("S2", 1)]:
+        trades = [{"good": "bike", "buyer": "B0", "seller": seller, "price": 50}]
+        assert welfare_report(trades, buyers, sellers)["extra_marginal_trades"] == expected
 
 
 def _caller(log):

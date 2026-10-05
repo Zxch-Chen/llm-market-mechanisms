@@ -9,7 +9,8 @@ import asyncio
 import json
 import random
 
-# Tinker list prices, dollars per million tokens (prefill, sample).
+# Historical prices used for this experiment, dollars per million tokens.
+# These estimates are not live billing quotes.
 PRICES = {
     "claude-opus-5-5": (4.00, 20.00),
     "Qwen/Qwen3-8B": (0.195, 0.60),
@@ -155,7 +156,12 @@ class ClaudeCLIBackend:
         try:
             out, err = await proc.communicate(prompt.encode())
         except asyncio.CancelledError:  # the per-call timeout fired: don't leave the process running
-            proc.kill()
+            if proc.returncode is None:
+                try:
+                    proc.kill()
+                except ProcessLookupError:
+                    pass
+            await proc.communicate()
             raise
         try:
             d = json.loads(out.decode() or "{}")

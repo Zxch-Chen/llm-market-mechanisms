@@ -94,6 +94,23 @@ def optimal_welfare(buyers, sellers) -> float:
     return sum(t[3] for t in efficient_trades(buyers, sellers))
 
 
+def efficient_participants(buyers, sellers):
+    """(good, agent) pairs eligible for an efficient allocation, including ties.
+
+    An arbitrary tie-break in efficient_trades must not make another trader with
+    the same marginal value or cost count as extra-marginal.
+    """
+    B = {b.id: b for b in buyers}
+    S = {s.id: s for s in sellers}
+    cutoffs = {}
+    for good, buyer, seller, _ in efficient_trades(buyers, sellers):
+        cutoffs[good] = (B[buyer].values[good], S[seller].cost)
+    return ({(good, b.id) for good, (value, _) in cutoffs.items()
+             for b in buyers if good in b.values and b.values[good] >= value}
+            | {(good, s.id) for good, (_, cost) in cutoffs.items()
+               for s in sellers if s.good == good and s.cost <= cost})
+
+
 def welfare_report(trades: List[dict], buyers, sellers) -> dict:
     """Score a list of trades {good, buyer, seller, price} with true values."""
     B = {b.id: b for b in buyers}
@@ -103,7 +120,7 @@ def welfare_report(trades: List[dict], buyers, sellers) -> dict:
     seller_surplus = sum(t["price"] - S[t["seller"]].cost for t in trades)
     w = buyer_surplus + seller_surplus
     eff = efficient_trades(buyers, sellers)
-    eff_pairs = {(g, b) for g, b, _, _ in eff} | {(g, s) for g, _, s, _ in eff}
+    eff_pairs = efficient_participants(buyers, sellers)
     return {
         "W_star": w_star,
         "W_realized": w,
